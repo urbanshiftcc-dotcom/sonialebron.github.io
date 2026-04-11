@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sonia J. LeBron, SPHR — Private Family Office & Chief of Staff</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #B8985A;
+    --gold-light: #D4B87A;
+    --gold-pale: #F5EDD8;
+    --navy: #0D1B2A;
+    --navy-mid: #1A2E42;
+    --cream: #FAF8F3;
+    --text: #1A1A18;
+    --muted: #6B6559;
+    --border: rgba(184,152,90,0.25);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.5rem 4rem;
+    background: rgba(250,248,243,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 400; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--navy);
+  }
+  .nav-links { display: flex; gap: 2.5rem; }
+  .nav-links a {
+    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+    text-decoration: none; color: var(--muted); transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    text-decoration: none; color: var(--navy);
+    border: 0.5px solid var(--gold);
+    padding: 0.6rem 1.4rem;
+    transition: all 0.25s;
+  }
+  .nav-cta:hover { background: var(--gold); color: #fff; }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 5rem; }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 6rem 4rem 6rem 6rem; position: relative; }
+  .hero-left::before { content: ''; position: absolute; top: 0; right: 0; width: 0.5px; height: 100%; background: linear-gradient(to bottom, transparent, var(--gold), transparent); }
+  .hero-tag { font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.8rem; display: flex; align-items: center; gap: 1rem; }
+  .hero-tag::before { content: ''; display: block; width: 40px; height: 0.5px; background: var(--gold); }
+  h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5vw, 4.8rem); font-weight: 300; line-height: 1.1; color: var(--navy); margin-bottom: 0.3rem; }
+  h1 em { font-style: italic; color: var(--gold); }
+  .hero-subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 300; font-style: italic; color: var(--muted); margin-bottom: 2.5rem; letter-spacing: 0.03em; }
+  .hero-desc { font-size: 0.95rem; color: var(--muted); max-width: 440px; margin-bottom: 2rem; line-height: 1.85; }
+  
+  .btn-primary { 
+    display: inline-block; 
+    text-decoration: none; 
+    background: var(--navy); 
+    color: var(--cream); 
+    padding: 1.1rem 2.6rem; 
+    font-size: 0.72rem; 
+    letter-spacing: 0.18em; 
+    text-transform: uppercase; 
+    transition: all 0.25s; 
+    border: none;
+  }
+  .btn-primary:hover { background: var(--gold); color: #fff; }
+
+  .hero-right { position: relative; overflow: hidden; min-height: 600px; background: #eee; }
+  .hero-right img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+
+  /* SECTION */
+  section { padding: 7rem 6rem; }
+  .section-tag { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem; }
+  .section-tag::before { content: ''; display: block; width: 30px; height: 0.5px; background: var(--gold); }
+  h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--navy); line-height: 1.2; margin-bottom: 1rem; }
+  h2 em { font-style: italic; color: var(--gold); }
+
+  .inquiry-section { background: var(--cream); text-align: center; }
+
+  footer { background: var(--navy); color: rgba(250,248,243,0.4); padding: 3rem 6rem; display: flex; align-items: center; justify-content: space-between; font-size: 0.72rem; }
+  
+  @media (max-width: 1024px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 2.5rem; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 8rem 2.5rem 4rem; }
+    footer { flex-direction: column; gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Sonia J. LeBron</div>
+  <div class="nav-links">
+    <a href="#inquiry">Contact</a>
+  </div>
+  <a href="#inquiry" class="nav-cta">Private Inquiry</a>
+</nav>
+
+<section class="hero" style="padding: 0;">
+  <div class="hero-left">
+    <div class="hero-tag">Private Family Office &amp; Household Leadership</div>
+    <h1>Trusted by<br><em>Extraordinary</em><br>Families.</h1>
+    <p class="hero-subtitle">Chief of Staff · Human Capital Strategist · SPHR</p>
+    <p class="hero-desc">For over two decades, Sonia J. LeBron has served as the trusted advisor behind high-performing organizations and private estates. Available globally for operational and human capital leadership.</p>
+    <div class="hero-actions">
+      <a href="#inquiry" class="btn-primary">Request Consultation</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="profile.png" alt="Sonia J. LeBron" />
+  </div>
+</section>
+
+<section id="inquiry" class="inquiry-section">
+  <div style="max-width: 800px; margin: 0 auto;">
+    <div class="section-tag" style="justify-content: center;">Direct Access</div>
+    <h2>Begin a <em>Confidential</em> Conversation</h2>
+    <p style="font-size: 1rem; color: var(--muted); margin: 1.5rem auto 3rem; line-height: 1.8;">
+      To maintain the highest level of discretion, please direct all inquiries regarding family office management, household leadership, or strategic HR consulting via email.
+    </p>
+    
+    <a href="mailto:slebron5809@comcast.net?subject=Private%20Inquiry%20-%20Sonia%20J.%20LeBron" 
+       class="btn-primary">
+       Send Email Inquiry
+    </a>
+    
+    <p style="margin-top: 2rem; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--navy); letter-spacing: 0.05em;">
+      slebron5809@comcast.net
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="nav-logo" style="color: rgba(250,248,243,0.8);">Sonia J. LeBron</div>
+  <div>&copy; 2026 Sonia J. LeBron. All Rights Reserved. Confidentiality Assured.</div>
+</footer>
+
+</body>
+</html>
