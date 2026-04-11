@@ -1,3 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonia J. LeBron | Private Family Office & Chief of Staff</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0A192F;
+            --navy-mid: #162840;
+            --gold: #C5A059;
+            --gold-light: #D4B87A;
+            --gold-pale: #F8F2E6;
+            --slate: #4A5568;
+            --white: #F8F9FA;
+            --cream: #FDFCF9;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--navy);
+            line-height: 1.7;
+            font-weight: 300;
+            overflow-x: hidden;
+        }
+
+        /* ── HEADER ── */
+        header {
+            padding: 1.4rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(253,252,249,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(197,160,89,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--navy);
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+        .header-nav {
+            display: flex;
+            gap: 2rem;
+        }
+        .header-nav a {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--slate);
+            transition: color 0.2s;
+        }
+        .header-nav a:hover { color: var(--gold); }
+        .header-cta {
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--navy);
+            border: 1px solid var(--gold);
+            padding: 0.55rem 1.3rem;
+            transition: all 0.25s;
+        }
+        .header-cta:hover { background: var(--gold); color: #fff; }
+
+        /* ── HERO ── */
+        .hero {
+            display: flex;
+            align-items: stretch;
+            min-height: 90vh;
+        }
+        .hero-content {
+            flex: 1.1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem 5% 6rem 8%;
+            background: var(--cream);
+            position: relative;
+        }
+        .hero-content::after {
+            content: '';
+            position: absolute; right: 0; top: 10%; bottom: 10%;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(197,160,89,0.4), transparent);
+        }
+        .hero-eyebrow {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .hero-eyebrow::before {
+            content: '';
+            display: block;
+            width: 36px; height: 1px;
+            background: var(--gold);
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.6rem, 4.5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+        h1 em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--gold);
+        }
+        .tagline {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--slate);
+            margin-bottom: 1.2rem;
+        }
+        .hero-desc {
+            font-size: 0.93rem;
+            color: var(--slate);
+            max-width: 460px;
+            line-height: 1.9;
+            margin-bottom: 2.5rem;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.4rem;
+            background-color: var(--navy);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .cta-button:hover { background-color: var(--gold); }
+        .cta-ghost {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--navy);
+            border-bottom: 1px solid var(--navy);
+            padding-bottom: 2px;
+            transition: all 0.25s;
+        }
+        .cta-ghost:hover { color: var(--gold); border-color: var(--gold); }
+
+        .hero-image {
+            flex: 0.9;
+            background: var(--navy);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 5rem 4%;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-image::before {
+            content: 'S';
+            position: absolute;
+            top: -0.1em; right: -0.05em;
+            font-family: 'Playfair Display', serif;
+            font-size: 28rem;
+            color: rgba(197,160,89,0.06);
+            line-height: 1;
+            pointer-events: none;
+        }
+        .photo-frame {
+            position: relative;
+            z-index: 1;
+            width: 78%;
+            max-width: 360px;
+        }
+        .photo-frame img {
+            width: 100%;
+            display: block;
+            border-radius: 2px;
+        }
+        .photo-placeholder {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: var(--navy-mid);
+            border: 1px solid rgba(197,160,89,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            border-radius: 2px;
+        }
+        .photo-placeholder span:first-child {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            opacity: 0.6;
+        }
+        .photo-placeholder span:last-child {
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(248,249,250,0.35);
+        }
+        .hero-stats {
+            position: relative;
+            z-index: 1;
+            width: 78%;
+            max-width: 360px;
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: rgba(197,160,89,0.2);
+        }
+        .hero-stat {
+            background: var(--navy);
+            padding: 1.2rem 1rem;
+        }
+        .hero-stat .num {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+        .hero-stat .lbl {
+            font-size: 0.62rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(248,249,250,0.45);
+        }
+
+        /* ── MARQUEE ── */
+        .marquee-wrap {
+            background: var(--gold);
+            padding: 0.75rem 0;
+            overflow: hidden;
+        }
+        .marquee-track {
+            display: flex;
+            white-space: nowrap;
+            animation: marquee 32s linear infinite;
+        }
+        .marquee-track span {
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--navy);
+            padding: 0 2.5rem;
+        }
+        .marquee-track span::after { content: '◆'; padding-left: 2.5rem; opacity: 0.45; }
+        @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        /* ── SECTION COMMONS ── */
+        section { padding: 6rem 8%; }
+        .section-label {
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.9rem;
+        }
+        .section-label::before {
+            content: '';
+            display: block;
+            width: 28px; height: 1px;
+            background: var(--gold);
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.25;
+            margin-bottom: 0.8rem;
+        }
+        h2 em { font-style: italic; font-weight: 400; color: var(--gold); }
+
+        /* ── SERVICES ── */
+        .services { background: #fff; }
+        .services-intro { max-width: 520px; font-size: 0.9rem; color: var(--slate); margin-bottom: 3.5rem; line-height: 1.85; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 0;
+            border: 1px solid rgba(197,160,89,0.2);
+        }
+        .service-card {
+            padding: 2.5rem 2.2rem;
+            border-right: 1px solid rgba(197,160,89,0.2);
+            transition: background 0.3s;
+        }
+        .service-card:last-child { border-right: none; }
+        .service-card:hover { background: var(--gold-pale); transform: translateY(-3px); }
+        .service-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(197,160,89,0.18);
+            line-height: 1;
+            margin-bottom: 1.2rem;
+        }
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.8rem;
+        }
+        .service-card p { font-size: 0.86rem; color: var(--slate); line-height: 1.85; }
+        .service-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.2rem; }
+        .tag {
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.65rem;
+            border: 1px solid rgba(197,160,89,0.35);
+            color: var(--gold);
+        }
+
+        /* ── METRICS ── */
+        .metrics {
+            padding: 5rem 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            background-color: rgba(197,160,89,0.2);
+        }
+        .metric-item {
+            background: var(--navy);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: background 0.25s;
+        }
+        .metric-item:hover { background: var(--navy-mid); }
+        .metric-item h2 {
+            font-size: 2.8rem;
+            color: var(--gold);
+            margin-bottom: 0.4rem;
+        }
+        .metric-item p { font-size: 0.75rem; color: rgba(248,249,250,0.55); letter-spacing: 0.08em; }
+
+        /* ── EXPERIENCE TIMELINE ── */
+        .experience { background: var(--cream); }
+        .timeline { margin-top: 3.5rem; position: relative; padding-left: 1.8rem; }
+        .timeline::before {
+            content: '';
+            position: absolute; left: 0; top: 0; bottom: 0;
+            width: 1px;
+            background: rgba(197,160,89,0.3);
+        }
+        .timeline-item { padding: 0 0 3rem 2.8rem; position: relative; }
+        .timeline-item::before {
+            content: '';
+            position: absolute; left: -5px; top: 0.4rem;
+            width: 10px; height: 10px; border-radius: 50%;
+            background: var(--cream);
+            border: 1.5px solid var(--gold);
+            transition: background 0.2s;
+        }
+        .timeline-item:hover::before { background: var(--gold); }
+        .timeline-date {
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.35rem;
+        }
+        .timeline-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.15rem;
+        }
+        .timeline-item .company {
+            font-size: 0.78rem;
+            color: var(--slate);
+            margin-bottom: 0.9rem;
+        }
+        .timeline-item ul { list-style: none; }
+        .timeline-item ul li {
+            font-size: 0.86rem;
+            color: var(--slate);
+            line-height: 1.75;
+            padding: 0.2rem 0;
+            display: flex;
+            gap: 0.7rem;
+            align-items: flex-start;
+        }
+        .timeline-item ul li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+
+        /* ── FAMILY OFFICE SPLIT ── */
+        .family-office {
+            background: var(--gold-pale);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+        .family-office p {
+            font-size: 0.9rem;
+            color: var(--slate);
+            line-height: 1.9;
+            margin-bottom: 1.2rem;
+        }
+        .checklist { list-style: none; margin-top: 1.8rem; }
+        .checklist li {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            font-size: 0.88rem;
+            color: var(--navy);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(197,160,89,0.2);
+        }
+        .checklist li:last-child { border-bottom: none; }
+        .checklist li::before { content: '✓'; color: var(--gold); font-weight: 600; flex-shrink: 0; }
+        .fo-cards { display: flex; flex-direction: column; gap: 1.2rem; }
+        .fo-card {
+            background: #fff;
+            padding: 1.8rem 2rem;
+            border-left: 2px solid var(--gold);
+            transition: transform 0.25s;
+        }
+        .fo-card:hover { transform: translateX(4px); }
+        .fo-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+        .fo-card p { font-size: 0.83rem; color: var(--slate); line-height: 1.75; }
+
+        /* ── CREDENTIALS ── */
+        .credentials { background: var(--navy); }
+        .credentials .section-label { color: var(--gold-light); }
+        .credentials .section-label::before { background: var(--gold-light); }
+        .credentials h2 { color: #F8F9FA; }
+        .credentials h2 em { color: var(--gold-light); }
+        .creds-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: rgba(197,160,89,0.2);
+            margin-top: 3.5rem;
+        }
+        .cred-item {
+            background: var(--navy);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+        .cred-abbr {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 0.8rem;
+        }
+        .cred-item h4 {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #F8F9FA;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+        }
+        .cred-item p { font-size: 0.75rem; color: rgba(248,249,250,0.45); }
+
+        /* ── CONTACT ── */
+        .contact-section {
+            background: var(--cream);
+            text-align: center;
+            padding: 8rem 8%;
+        }
+        .contact-section h2 { margin-bottom: 1rem; }
+        .contact-section .sub {
             font-size: 0.9rem;
             color: var(--slate);
             max-width: 500px;
@@ -159,6 +676,69 @@
     <div class="metric-item"><h2>Global</h2><p>Operational Reach — 33 Countries</p></div>
 </div>
 
+<!-- EXPERIENCE -->
+<section id="experience" class="experience">
+    <div class="section-label">Professional History</div>
+    <h2>Two Decades of<br><em>Institutional Expertise</em></h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-date">2023 — 2026</div>
+            <h3>Vice President, Human Resources</h3>
+            <div class="company">King Nut Companies · Cleveland, OH · $100M Private Distribution Company</div>
+            <ul>
+                <li>Led HR strategy for a 400+ employee workforce, managing a team of 4 HR professionals</li>
+                <li>Drove a 20% increase in employee engagement through culture transformation</li>
+                <li>Reduced annual turnover from 100% to 66.9% — a 33-point improvement</li>
+                <li>Scaled headcount by 37% in 90 days with a robust talent acquisition strategy</li>
+                <li>Achieved 30% reduction in HR-related expenses through operational optimization</li>
+            </ul>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">2021 — 2023</div>
+            <h3>Regional Human Resource Director</h3>
+            <div class="company">LANXESS Solutions · Fords, NJ · $6.1B Division · 14,800 Employees · 33 Countries</div>
+            <ul>
+                <li>Directed HR across 4 plant sites for a global specialty chemical company</li>
+                <li>Delivered a 43% increase in productivity through strategic performance culture training</li>
+                <li>Reduced workplace complaints by 50% and successfully averted a labor strike in 2021</li>
+                <li>Implemented a global Strategic Workforce Plan to reduce plant-level attrition</li>
+            </ul>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">2018 — 2021</div>
+            <h3>Independent HR Consultant</h3>
+            <div class="company">Ocean, NJ · Start-up & Growth-Stage Organizations</div>
+            <ul>
+                <li>Delivered HR best practices and compliance strategy for start-ups in rapid growth</li>
+                <li>Increased employee satisfaction by 20% through targeted engagement programs</li>
+                <li>Reduced workplace complaints by 40% through policy design and manager coaching</li>
+                <li>Supported Rutgers University with Salesforce implementation and L&D program design</li>
+            </ul>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">2015 — 2018</div>
+            <h3>Global HR Business Partner</h3>
+            <div class="company">LIXIL Corporation · Piscataway, NJ · $1.8B Division · 90,000 Employees</div>
+            <ul>
+                <li>Oversaw HR spanning recruitment, compensation, analytics, and workforce planning</li>
+                <li>Led global implementation of SAP SuccessFactors Employee Central</li>
+                <li>Executed a Merger & Acquisition integration within 6 weeks</li>
+                <li>Collaborated with CHRO across operations in Mexico, Canada, and Dominican Republic</li>
+            </ul>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">2011 — 2015</div>
+            <h3>Global HR Business Partner</h3>
+            <div class="company">The Hershey Company · Hershey, PA · $1.8B Division · 16,000 Employees</div>
+            <ul>
+                <li>Full-cycle HR partner: staffing, compensation, benefits, succession, and employee relations</li>
+                <li>Built a data-driven retention model using SAS JMP to identify and mitigate flight risks</li>
+                <li>Led plant divestiture and re-employment of all 400 affected employees with a joint venture partner</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
 <!-- FAMILY OFFICE -->
 <section id="family-office" class="family-office">
     <div>
@@ -231,7 +811,7 @@
 <footer>
     <div class="footer-logo">Sonia J. LeBron, MBA, SPHR</div>
     <div>Private Family Advisory · Household Chief of Staff · Human Capital Consulting</div>
-    <div>&copy; 2026 · Confidentiality &amp; Discretion Guaranteed · Cleveland, OH · Available Nationally</div>
+    <div>&copy; 2026 · Confidentiality &amp; Discretion Guaranteed · Greater New York City · Available Nationally</div>
 </footer>
 
 </body>
