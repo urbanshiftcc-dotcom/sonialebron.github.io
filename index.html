@@ -71,22 +71,12 @@
     padding: 6rem 4rem 6rem 6rem;
     position: relative;
   }
-  
-  .profile-container {
-    width: 220px;
-    height: 220px;
-    margin-bottom: 2.5rem;
+  .hero-left::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 0.5px; height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
   }
-  .profile-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 1px solid var(--gold);
-    padding: 5px;
-    background: white;
-  }
-
   .hero-tag {
     font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
     color: var(--gold); margin-bottom: 1.8rem;
@@ -97,7 +87,7 @@
   }
   h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3rem, 5vw, 4.2rem);
+    font-size: clamp(3rem, 5vw, 4.8rem);
     font-weight: 300; line-height: 1.1;
     color: var(--navy); margin-bottom: 0.3rem;
   }
@@ -134,6 +124,13 @@
     padding: 6rem 5rem;
     position: relative; overflow: hidden;
   }
+  .hero-right::before {
+    content: 'S';
+    position: absolute; top: -0.15em; right: -0.05em;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30rem; font-weight: 300; color: rgba(184,152,90,0.06);
+    line-height: 1; pointer-events: none; user-select: none;
+  }
   .stat-grid {
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 2.5rem; position: relative; z-index: 1;
@@ -147,6 +144,21 @@
   .stat-label {
     font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
     color: rgba(250,248,243,0.55);
+  }
+  .hero-quote {
+    margin-top: 3.5rem; padding-top: 2rem;
+    border-top: 0.5px solid rgba(184,152,90,0.25);
+    position: relative; z-index: 1;
+  }
+  .hero-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-style: italic; font-weight: 300;
+    color: rgba(250,248,243,0.75); line-height: 1.6;
+  }
+  .hero-quote cite {
+    display: block; margin-top: 0.8rem;
+    font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); font-style: normal;
   }
 
   /* MARQUEE */
@@ -178,8 +190,10 @@
     font-size: clamp(2rem, 3.5vw, 3rem);
     font-weight: 300; color: var(--navy); line-height: 1.2; margin-bottom: 1rem;
   }
+  h2 em { font-style: italic; color: var(--gold); }
 
   /* SERVICES */
+  .services { background: #fff; }
   .services-grid {
     display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 0; margin-top: 4rem;
@@ -189,10 +203,136 @@
     padding: 2.8rem 2.4rem;
     border-right: 0.5px solid var(--border);
     transition: background 0.3s;
+    position: relative;
   }
+  .service-card:last-child { border-right: none; }
   .service-card:hover { background: var(--gold-pale); }
-  .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 0.8rem; }
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; font-weight: 300; color: var(--border);
+    line-height: 1; margin-bottom: 1.5rem;
+  }
+  .service-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 400; color: var(--navy);
+    margin-bottom: 0.8rem; line-height: 1.3;
+  }
   .service-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.8; }
+  .service-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
+  .tag {
+    font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.3rem 0.7rem; border: 0.5px solid var(--border);
+    color: var(--gold);
+  }
+
+  /* TRACK RECORD */
+  .track { background: var(--navy); color: var(--cream); }
+  .track .section-tag { color: var(--gold-light); }
+  .track .section-tag::before { background: var(--gold-light); }
+  .track h2 { color: var(--cream); }
+  .track h2 em { color: var(--gold-light); }
+  .results-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 2px; margin-top: 4rem; background: rgba(184,152,90,0.2);
+  }
+  .result-card {
+    background: var(--navy);
+    padding: 2.5rem 2rem;
+    transition: background 0.25s;
+  }
+  .result-card:hover { background: var(--navy-mid); }
+  .result-card .big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 300; color: var(--gold);
+    line-height: 1; margin-bottom: 0.5rem;
+  }
+  .result-card p { font-size: 0.82rem; color: rgba(250,248,243,0.6); line-height: 1.6; }
+
+  /* EXPERIENCE TIMELINE */
+  .experience { background: var(--cream); }
+  .timeline { margin-top: 4rem; position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 0.5px; background: var(--border);
+  }
+  .timeline-item { padding: 0 0 3.5rem 3rem; position: relative; }
+  .timeline-item::before {
+    content: ''; position: absolute; left: -5px; top: 0.4rem;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--cream); border: 1.5px solid var(--gold);
+  }
+  .timeline-item:hover::before { background: var(--gold); }
+  .timeline-date {
+    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.4rem;
+  }
+  .timeline-item h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 400; color: var(--navy);
+    margin-bottom: 0.2rem;
+  }
+  .timeline-item .company {
+    font-size: 0.8rem; color: var(--muted); margin-bottom: 0.8rem; letter-spacing: 0.05em;
+  }
+  .timeline-item ul { list-style: none; }
+  .timeline-item ul li {
+    font-size: 0.88rem; color: var(--muted); line-height: 1.7;
+    padding: 0.2rem 0;
+    display: flex; gap: 0.6rem; align-items: flex-start;
+  }
+  .timeline-item ul li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+
+  /* EXPERTISE COLUMNS */
+  .expertise { background: #fff; }
+  .expertise-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; margin-top: 4rem; align-items: start;
+  }
+  .expertise-col h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 400; color: var(--navy);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .expertise-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 0.5px solid rgba(184,152,90,0.1);
+  }
+  .expertise-item:last-child { border-bottom: none; }
+  .expertise-icon { color: var(--gold); font-size: 0.9rem; flex-shrink: 0; margin-top: 0.15rem; }
+  .expertise-item p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+  .expertise-item strong { display: block; font-weight: 500; color: var(--text); font-size: 0.9rem; }
+
+  /* FAMILY OFFICE SECTION */
+  .family-office {
+    background: var(--gold-pale);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+  }
+  .family-office h2 { margin-bottom: 1.5rem; }
+  .family-office p { font-size: 0.92rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.5rem; }
+  .checklist { list-style: none; margin-top: 2rem; }
+  .checklist li {
+    display: flex; gap: 1rem; align-items: flex-start;
+    font-size: 0.9rem; color: var(--text); padding: 0.6rem 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before { content: '✓'; color: var(--gold); font-weight: 500; flex-shrink: 0; }
+  .fo-visual {
+    display: flex; flex-direction: column; gap: 1.5rem;
+  }
+  .fo-card {
+    background: #fff;
+    padding: 1.8rem 2rem;
+    border-left: 2px solid var(--gold);
+  }
+  .fo-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; color: var(--navy); margin-bottom: 0.5rem;
+  }
+  .fo-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
 
   /* CREDENTIALS */
   .credentials { background: var(--navy); }
@@ -200,46 +340,409 @@
     display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 2px; background: rgba(184,152,90,0.15); margin-top: 4rem;
   }
-  .cred-item { background: var(--navy); padding: 2.5rem 2rem; text-align: center; }
-  .cred-icon { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 0.8rem; }
-  .cred-item h4 { font-size: 0.85rem; color: var(--cream); letter-spacing: 0.05em; }
+  .cred-item {
+    background: var(--navy); padding: 2.5rem 2rem;
+    text-align: center;
+  }
+  .cred-icon {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; color: var(--gold); margin-bottom: 0.8rem;
+  }
+  .cred-item h4 {
+    font-size: 0.85rem; font-weight: 500; color: var(--cream);
+    letter-spacing: 0.05em; margin-bottom: 0.3rem;
+  }
+  .cred-item p { font-size: 0.78rem; color: rgba(250,248,243,0.5); }
+
+  /* CTA */
+  .cta-section {
+    background: var(--cream); text-align: center;
+    padding: 8rem 4rem;
+  }
+  .cta-section h2 { margin-bottom: 1.2rem; font-size: clamp(2.2rem, 4vw, 3.5rem); }
+  .cta-section p { font-size: 0.95rem; color: var(--muted); max-width: 520px; margin: 0 auto 3rem; line-height: 1.85; }
+  .cta-contact {
+    display: flex; justify-content: center; align-items: center;
+    gap: 2rem; flex-wrap: wrap;
+  }
+  .contact-pill {
+    display: flex; align-items: center; gap: 0.7rem;
+    padding: 1rem 2rem;
+    border: 0.5px solid var(--border);
+    font-size: 0.82rem; color: var(--text); text-decoration: none;
+    letter-spacing: 0.05em; transition: all 0.25s;
+  }
+  .contact-pill:hover { border-color: var(--gold); color: var(--gold); }
+  .contact-pill .icon { font-size: 1rem; }
 
   /* FOOTER */
   footer {
     background: var(--navy); color: rgba(250,248,243,0.4);
-    padding: 3rem 6rem; display: flex;
+    padding: 2rem 6rem; display: flex;
     align-items: center; justify-content: space-between;
     font-size: 0.72rem; letter-spacing: 0.08em;
   }
+  footer a { color: var(--gold-light); text-decoration: none; }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; font-weight: 400; letter-spacing: 0.15em;
+    color: rgba(250,248,243,0.7);
+  }
 
+  /* RESPONSIVE */
   @media (max-width: 1024px) {
-    .hero { grid-template-columns: 1fr; }
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 2.5rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
     .hero-left { padding: 8rem 2.5rem 4rem; }
+    .hero-right { padding: 4rem 2.5rem; }
+    .hero-right::before { font-size: 18rem; }
     .services-grid { grid-template-columns: 1fr; }
+    .service-card { border-right: none; border-bottom: 0.5px solid var(--border); }
+    .results-grid { grid-template-columns: repeat(2,1fr); }
+    .expertise-grid { grid-template-columns: 1fr; }
+    .family-office { grid-template-columns: 1fr; gap: 3rem; }
     .creds-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
   }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <div class="nav-logo">Sonia J. LeBron, MBA, SPHR</div>
+  <div class="nav-logo">Sonia J. LeBron</div>
   <div class="nav-links">
     <a href="#services">Services</a>
+    <a href="#experience">Experience</a>
+    <a href="#family-office">Family Office</a>
     <a href="#credentials">Credentials</a>
-    <a href="#contact">Contact</a>
   </div>
   <a href="#contact" class="nav-cta">Private Inquiry</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero" style="padding: 0;">
   <div class="hero-left">
-    <div class="profile-container">
-      <img src="profile.png" alt="Sonia J. LeBron, MBA, SPHR" class="profile-img">
-    </div>
-    <div class="hero-tag">Domestic USA · International</div>
+    <div class="hero-tag">Private Household & Family Office Consulting</div>
     <h1>Trusted by<br><em>Extraordinary</em><br>Families.</h1>
-    <p class="hero-subtitle">Chief of Staff · House Manager · Executive Advisor</p>
-    <p class="hero-desc">Sonia J. LeBron, MBA, SPHR, provides world-class operational leadership and human capital strategy for discerning ultra-high-net-worth families, celebrities, and private estates. Discreet and NDA-compliant.</p>
-    <div class="
+    <p class="hero-subtitle">Chief of Staff · Human Capital Strategist · Executive Advisor</p>
+    <p class="hero-desc">For over two decades, Sonia J. LeBron has served as the trusted advisor behind high-performing organizations. Now exclusively available to discerning ultra-high-net-worth families seeking world-class operational and human capital leadership.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Request a Private Consultation</a>
+      <a href="#services" class="btn-ghost">Explore Services</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-grid">
+      <div class="stat-item">
+        <div class="stat-num">20+</div>
+        <div class="stat-label">Years Executive Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">$6B+</div>
+        <div class="stat-label">Organizations Served</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">90K+</div>
+        <div class="stat-label">People Under Management</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Bilingual English & Spanish</div>
+      </div>
+    </div>
+    <div class="hero-quote">
+      <p>"The right advisor doesn't just solve today's problem — they anticipate tomorrow's."</p>
+      <cite>— Sonia J. LeBron, MBA, SPHR</cite>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Family Office Management</span>
+    <span>Household Chief of Staff</span>
+    <span>Talent & Culture Strategy</span>
+    <span>Private Staff Recruitment</span>
+    <span>Estate Operations</span>
+    <span>Wealth Family Governance</span>
+    <span>Executive Coaching</span>
+    <span>Organizational Design</span>
+    <span>Discretion & Confidentiality</span>
+    <span>Family Office Management</span>
+    <span>Household Chief of Staff</span>
+    <span>Talent & Culture Strategy</span>
+    <span>Private Staff Recruitment</span>
+    <span>Estate Operations</span>
+    <span>Wealth Family Governance</span>
+    <span>Executive Coaching</span>
+    <span>Organizational Design</span>
+    <span>Discretion & Confidentiality</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="services">
+  <div class="section-tag">What I Offer</div>
+  <h2>Services Tailored to<br><em>Exceptional</em> Households</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <h3>On-Site Chief of Staff</h3>
+      <p>Embedded executive leadership for your household or family office. I manage your private staff, coordinate cross-functional priorities, and ensure your household operates with the precision of a Fortune 500 company — all with absolute discretion.</p>
+      <div class="service-tags">
+        <span class="tag">Full-time</span>
+        <span class="tag">Part-time</span>
+        <span class="tag">Project-based</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <h3>Family Office Human Capital</h3>
+      <p>From recruiting world-class household staff and private assistants to building compensation frameworks and performance systems — I bring institutional-grade people strategy to your private family enterprise.</p>
+      <div class="service-tags">
+        <span class="tag">Recruitment</span>
+        <span class="tag">Compensation</span>
+        <span class="tag">Retention</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <h3>Executive Advisory & Consulting</h3>
+      <p>On-demand strategic counsel for family principals, trustees, and board members. Whether navigating organizational transitions, managing legacy staff, or building governance frameworks — I deliver solutions with speed and sophistication.</p>
+      <div class="service-tags">
+        <span class="tag">Governance</span>
+        <span class="tag">Strategy</span>
+        <span class="tag">Advisory</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACK RECORD -->
+<section class="track">
+  <div class="section-tag">By the Numbers</div>
+  <h2>A Track Record That<br><em>Speaks for Itself</em></h2>
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="big">33%</div>
+      <p>Reduction in annual staff turnover through targeted culture transformation and engagement strategy</p>
+    </div>
+    <div class="result-card">
+      <div class="big">43%</div>
+      <p>Productivity increase delivered at a global $6.1B division through workforce optimization</p>
+    </div>
+    <div class="result-card">
+      <div class="big">30%</div>
+      <p>Reduction in HR-related expenses through cost-saving initiatives and vendor optimization</p>
+    </div>
+    <div class="result-card">
+      <div class="big">37%</div>
+      <p>Headcount scaled in just 90 days during a period of rapid organizational growth</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE TIMELINE -->
+<section id="experience" class="experience">
+  <div class="section-tag">Professional History</div>
+  <h2>Two Decades of<br><em>Institutional Expertise</em></h2>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-date">2023 — 2026</div>
+      <h3>Vice President, Human Resources</h3>
+      <div class="company">King Nut Companies · Cleveland, OH · $100M Private Distribution Company</div>
+      <ul>
+        <li>Led HR strategy for 400+ employee workforce, managing a team of 4 HR professionals</li>
+        <li>Drove a 20% increase in employee engagement through culture transformation programs</li>
+        <li>Reduced annual turnover from 100% to 66.9% — a 33-point improvement</li>
+        <li>Scaled headcount by 37% in 90 days with a robust talent acquisition strategy</li>
+        <li>Achieved 30% reduction in HR-related expenses through operational optimization</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">2021 — 2023</div>
+      <h3>Regional Human Resource Director</h3>
+      <div class="company">LANXESS Solutions · Fords, NJ · $6.1B Division, 14,800 Employees, 33 Countries</div>
+      <ul>
+        <li>Directed HR across 4 plant sites for one of the world's leading specialty chemical companies</li>
+        <li>Delivered a 43% increase in productivity through strategic performance culture training</li>
+        <li>Reduced workplace complaints by 50% and successfully averted a labor strike in 2021</li>
+        <li>Implemented global Strategic Workforce Plan to reduce attrition at the plant level</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">2018 — 2021</div>
+      <h3>Independent HR Consultant</h3>
+      <div class="company">Ocean, NJ · Start-up & Growth-Stage Organizations</div>
+      <ul>
+        <li>Delivered HR best practices for start-ups navigating rapid growth and compliance</li>
+        <li>Increased employee satisfaction by 20% through engagement and retention programs</li>
+        <li>Reduced workplace complaints by 40% through policy design and manager coaching</li>
+        <li>Supported Rutgers University in Salesforce implementation and L&D program design</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">2015 — 2018</div>
+      <h3>Global HR Business Partner</h3>
+      <div class="company">LIXIL Corporation · Piscataway, NJ · $1.8B Division, 90,000 Employees</div>
+      <ul>
+        <li>Oversaw HR functions spanning recruitment, compensation, analytics, and workforce planning</li>
+        <li>Led global HRIS implementation of SAP SuccessFactors Employee Central</li>
+        <li>Executed a Merger & Acquisition within 6 weeks — delivering seamless people integration</li>
+        <li>Collaborated directly with CHRO across manufacturing and logistics operations in Mexico, Canada, and the Dominican Republic</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">2011 — 2015</div>
+      <h3>Global HR Business Partner</h3>
+      <div class="company">The Hershey Company · Hershey, PA · $1.8B Division, 16,000 Employees</div>
+      <ul>
+        <li>Full-cycle HR partner: staffing, compensation, benefits, succession, employee relations</li>
+        <li>Built a data-driven retention model using SAS JMP to identify and mitigate flight risks</li>
+        <li>Led plant divestiture and re-employment of all 400 affected employees with a joint venture partner</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="expertise">
+  <div class="section-tag">Core Competencies</div>
+  <h2>Where <em>Mastery</em> Meets<br>Your Family's Needs</h2>
+  <div class="expertise-grid">
+    <div class="expertise-col">
+      <h3>Household & Family Office Operations</h3>
+      <div class="expertise-item">
+        <div class="expertise-icon">◆</div>
+        <p><strong>Private Staff Management</strong>Chief of Staff-level oversight of household employees including estate managers, personal assistants, household managers, and domestic staff.</p>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">◆</div>
+        <p><strong>Recruiting & Vetting Elite Talent</strong>Rigorous screening, compensation benchmarking, and onboarding of high-caliber private service professionals with full confidentiality.</p>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">◆</div>
+        <p><strong>Family Governance & Policy</strong>Designing household operating procedures, employment policies, NDA frameworks, and staff handbooks aligned to family values.</p>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">◆</div>
+        <p><strong>Conflict Resolution</strong>Decades of sensitive employee relations expertise — de-escalating issues quietly and professionally before they become problems.</p>
+      </div>
+    </div>
+    <div class="expertise-col">
+      <h3>Strategic Human Capital Leadership</h3>
+      <div class="expertise-item">
+        <div class="expertise-icon">◆</div>
+        <p><strong>Organizational Design</strong>Structuring teams and reporting lines for maximum effectiveness — whether for a private office, foundation, or family business.</p>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">◆</div>
+        <p><strong>Compensation & Benefits Architecture</strong>Building pay structures and benefits programs that attract and retain exceptional people at every level.</p>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">◆</div>
+        <p><strong>Executive Coaching & Development</strong>One-on-one coaching for rising family members and key staff — building the leadership capability your legacy requires.</p>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">◆</div>
+        <p><strong>Data-Driven People Analytics</strong>Leveraging tools like PowerBI, Qualtrics, and SAS JMP to provide principals with clear, actionable insights on their human capital investments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAMILY OFFICE SECTION -->
+<section id="family-office" class="family-office" style="padding: 7rem 6rem;">
+  <div>
+    <div class="section-tag">Why Sonia</div>
+    <h2>Built for the<br><em>Demands of Private</em><br>Family Service</h2>
+    <p>Ultra-high-net-worth families have needs that no corporate HR consultant is equipped to meet. You require someone who has managed complexity at scale — but who can apply that expertise with the discretion, warmth, and personal attention that only private service demands.</p>
+    <p>Sonia brings a rare combination: the strategic rigor of a Fortune 500 executive advisor, the judgment of a senior counselor, and the bilingual fluency (English & Spanish) to serve families across cultures and geographies.</p>
+    <ul class="checklist">
+      <li>Absolute discretion and confidentiality — always</li>
+      <li>Available for on-site, hybrid, or remote engagements</li>
+      <li>Experienced managing multi-location, multi-national household staff</li>
+      <li>Proven ability to reduce staff conflict and improve household harmony</li>
+      <li>Bilingual English/Spanish for international families</li>
+      <li>MBA + SPHR certified — institutional rigor at your service</li>
+    </ul>
+  </div>
+  <div class="fo-visual">
+    <div class="fo-card">
+      <h4>The On-Site Chief of Staff</h4>
+      <p>Embedded in your household, I function as your senior-most operational leader — managing staff, vendors, schedules, and priorities so your family's time and energy are spent where they matter most.</p>
+    </div>
+    <div class="fo-card">
+      <h4>The Strategic Consultant</h4>
+      <p>Engaged on a project or retainer basis, I advise on people strategy, staff transitions, compensation benchmarking, and organizational structure — delivering institutional-quality thinking on your timeline.</p>
+    </div>
+    <div class="fo-card">
+      <h4>The Trusted Advisor</h4>
+      <p>For principals who want a standing relationship with a senior advisor — available when you need clarity, discretion, and executive judgment on matters involving your most important asset: your people.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section id="credentials" class="credentials">
+  <div class="section-tag" style="color: var(--gold-light);">Education & Credentials</div>
+  <h2 style="color: var(--cream);">The Foundation of<br><em>Exceptional</em> Advisory</h2>
+  <div class="creds-grid">
+    <div class="cred-item">
+      <div class="cred-icon">MBA</div>
+      <h4>Master of Business Administration</h4>
+      <p>Alvernia University, Reading, PA</p>
+    </div>
+    <div class="cred-item">
+      <div class="cred-icon">SPHR</div>
+      <h4>Senior Professional in Human Resources</h4>
+      <p>Rutgers University Certification</p>
+    </div>
+    <div class="cred-item">
+      <div class="cred-icon">ES</div>
+      <h4>Bilingual English & Spanish</h4>
+      <p>Full professional fluency in both languages</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="cta-section">
+  <div class="section-tag" style="justify-content: center;">Begin the Conversation</div>
+  <h2>Ready to Experience<br><em>World-Class</em> Private Service?</h2>
+  <p>Engagements are limited and acceptance is selective. If you represent a family seeking exceptional operational and human capital leadership, I welcome a confidential inquiry.</p>
+  <div class="cta-contact">
+    <a href="mailto:slebron5809@comcast.net" class="contact-pill">
+      <span class="icon">✉</span>
+      slebron5809@comcast.net
+    </a>
+    <a href="tel:6105072049" class="contact-pill">
+      <span class="icon">◎</span>
+      (610) 507-2049
+    </a>
+    <a href="https://www.linkedin.com/in/sonia-l-0a7a4822b/" target="_blank" class="contact-pill">
+      <span class="icon">in</span>
+      LinkedIn Profile
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Sonia J. LeBron, MBA, SPHR</div>
+  <div>Private Family Advisory · Household Chief of Staff · Human Capital Consulting</div>
+  <div>Cleveland, OH &nbsp;|&nbsp; Available Nationally</div>
+</footer>
+
+</body>
+</html>
