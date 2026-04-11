@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sonia J. LeBron, MBA, SPHR — Private Family Office & Chief of Staff</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #B8985A;
+    --gold-light: #D4B87A;
+    --gold-pale: #F5EDD8;
+    --navy: #0D1B2A;
+    --navy-mid: #1A2E42;
+    --cream: #FAF8F3;
+    --text: #1A1A18;
+    --muted: #6B6559;
+    --border: rgba(184,152,90,0.25);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.5rem 4rem;
+    background: rgba(250,248,243,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 400; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--navy);
+  }
+  .nav-links { display: flex; gap: 2.5rem; }
+  .nav-links a {
+    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+    text-decoration: none; color: var(--muted); transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    text-decoration: none; color: var(--navy);
+    border: 0.5px solid var(--gold);
+    padding: 0.6rem 1.4rem;
+    transition: all 0.25s;
+  }
+  .nav-cta:hover { background: var(--gold); color: #fff; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 4rem 6rem 6rem;
+    position: relative;
+  }
+  .hero-left::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 0.5px; height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  }
+  .hero-tag {
+    font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.8rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .hero-tag::before {
+    content: ''; display: block; width: 40px; height: 0.5px; background: var(--gold);
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 4.8rem);
+    font-weight: 300; line-height: 1.1;
+    color: var(--navy); margin-bottom: 0.3rem;
+  }
+  h1 em { font-style: italic; color: var(--gold); }
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem; font-weight: 400; letter-spacing: 0.08em;
+    color: var(--navy); margin-bottom: 0.2rem;
+  }
+  .hero-creds {
+    font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.6rem;
+  }
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 300; font-style: italic;
+    color: var(--muted); margin-bottom: 2.5rem; letter-spacing: 0.03em;
+  }
+  .hero-desc {
+    font-size: 0.95rem; color: var(--muted); max-width: 440px;
+    margin-bottom: 2rem; line-height: 1.85;
+  }
+  .contract-badges {
+    display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem;
+  }
+  .cbadge {
+    font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.35rem 0.8rem; border: 0.5px solid var(--gold);
+    color: var(--gold); background: transparent;
+  }
+  .hero-actions { display: flex; gap: 1.2rem; align-items: center; }
+  .btn-primary {
+    display: inline-block; text-decoration: none;
+    background: var(--navy); color: var(--cream);
+    padding: 1rem 2.4rem;
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    transition: all 0.25s;
+  }
+  .btn-primary:hover { background: var(--gold); }
+  .btn-ghost {
+    display: inline-block; text-decoration: none;
+    color: var(--navy); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    border-bottom: 0.5px solid var(--navy); padding-bottom: 2px;
+    transition: all 0.25s;
+  }
+  .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* HERO RIGHT — PHOTO */
+  .hero-right {
+    position: relative; overflow: hidden;
+    min-height: 600px;
+  }
+  .hero-right img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top center;
+    display: block;
+  }
+  .hero-right-overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(5,12,20,0.96) 0%, rgba(5,12,20,0.75) 45%, transparent 75%);
+    padding: 3rem 2.5rem 2rem;
+  }
+  .stat-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .stat-item { border-top: 0.5px solid rgba(184,152,90,0.5); padding-top: 0.8rem; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 300; color: var(--gold);
+    line-height: 1; margin-bottom: 0.2rem;
+  }
+  .stat-label {
+    font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(250,248,243,0.65);
+  }
+
+  /* MARQUEE */
+  .marquee-wrap {
+    background: var(--gold);
+    padding: 0.8rem 0; overflow: hidden;
+  }
+  .marquee-track {
+    display: flex; gap: 0; white-space: nowrap;
+    animation: marquee 30s linear infinite;
+  }
+  .marquee-track span {
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--navy); padding: 0 2.5rem;
+  }
+  .marquee-track span::after { content: '◆'; padding-left: 2.5rem; opacity: 0.5; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* SECTION COMMONS */
+  section { padding: 7rem 6rem; }
+  .section-tag {
+    font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .section-tag::before { content: ''; display: block; width: 30px; height: 0.5px; background: var(--gold); }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300; color: var(--navy); line-height: 1.2; margin-bottom: 1rem;
+  }
+  h2 em { font-style: italic; color: var(--gold); }
+
+  /* MARKETS BAND */
+  .markets-band {
+    background: var(--navy); padding: 3.5rem 6rem;
+  }
+  .markets-inner {
+    display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;
+  }
+  .markets-label {
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); white-space: nowrap;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .markets-label::after { content: ''; display: block; width: 30px; height: 0.5px; background: var(--gold); }
+  .markets-pills { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+  .market-pill {
+    font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.45rem 1.1rem;
+    border: 0.5px solid rgba(184,152,90,0.45);
+    color: rgba(250,248,243,0.75);
+    transition: all 0.2s;
+  }
+  .market-pill:hover { border-color: var(--gold); color: var(--gold); }
+  .market-pill.featured { border-color: var(--gold); color: var(--gold); }
+
+  /* SERVICES */
+  .services { background: #fff; }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0; margin-top: 4rem;
+    border: 0.5px solid var(--border);
+  }
+  .service-card {
+    padding: 2.8rem 2.4rem;
+    border-right: 0.5px solid var(--border);
+    transition: background 0.3s;
+    position: relative;
+  }
+  .service-card:last-child { border-right: none; }
+  .service-card:hover { background: var(--gold-pale); }
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; font-weight: 300; color: var(--border);
+    line-height: 1; margin-bottom: 1.5rem;
+  }
+  .service-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 400; color: var(--navy);
+    margin-bottom: 0.8rem; line-height: 1.3;
+  }
+  .service-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.8; }
+  .service-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
+  .tag {
+    font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.3rem 0.7rem; border: 0.5px solid var(--border);
+    color: var(--gold);
+  }
+
+  /* TRACK RECORD */
+  .track { background: var(--navy); color: var(--cream); }
+  .track .section-tag { color: var(--gold-light); }
+  .track .section-tag::before { background: var(--gold-light); }
+  .track h2 { color: var(--cream); }
+  .track h2 em { color: var(--gold-light); }
+  .results-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 2px; margin-top: 4rem; background: rgba(184,152,90,0.2);
+  }
+  .result-card {
+    background: var(--navy);
+    padding: 2.5rem 2rem;
+    transition: background 0.25s;
+  }
+  .result-card:hover { background: var(--navy-mid); }
+  .result-card .big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 300; color: var(--gold);
+    line-height: 1; margin-bottom: 0.5rem;
+  }
+  .result-card p { font-size: 0.82rem; color: rgba(250,248,243,0.6); line-height: 1.6; }
+
+  /* ORIGIN STORY */
+  .origin {
+    background: var(--gold-pale);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+  }
+  .origin h2 { margin-bottom: 1.5rem; }
+  .origin p { font-size: 0.92rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.2rem; }
+  .origin-cards { display: flex; flex-direction: column; gap: 1.2rem; }
+  .origin-card {
+    background: #fff;
+    padding: 1.6rem 2rem;
+    border-left: 2px solid var(--gold);
+  }
+  .origin-card .oc-tag {
+    font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.4rem;
+  }
+  .origin-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem; color: var(--navy); margin-bottom: 0.35rem;
+  }
+  .origin-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; margin: 0; }
+
+  /* EXPERTISE COLUMNS */
+  .expertise { background: #fff; }
+  .expertise-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; margin-top: 4rem; align-items: start;
+  }
+  .expertise-col h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 400; color: var(--navy);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .expertise-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 0.5px solid rgba(184,152,90,0.1);
+  }
+  .expertise-item:last-child { border-bottom: none; }
+  .expertise-icon { color: var(--gold); font-size: 0.9rem; flex-shrink: 0; margin-top: 0.15rem; }
+  .expertise-item p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+  .expertise-item strong { display: block; font-weight: 500; color: var(--text); font-size: 0.9rem; }
+
+  /* FAMILY OFFICE SECTION */
+  .family-office {
+    background: var(--cream);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+  }
+  .family-office h2 { margin-bottom: 1.5rem; }
+  .family-office p { font-size: 0.92rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.5rem; }
+  .checklist { list-style: none; margin-top: 2rem; }
+  .checklist li {
+    display: flex; gap: 1rem; align-items: flex-start;
+    font-size: 0.9rem; color: var(--text); padding: 0.6rem 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before { content: '✓'; color: var(--gold); font-weight: 500; flex-shrink: 0; }
+  .fo-visual {
+    display: flex; flex-direction: column; gap: 1.5rem;
+  }
+  .fo-card {
+    background: var(--gold-pale);
+    padding: 1.8rem 2rem;
+    border-left: 2px solid var(--gold);
+  }
+  .fo-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; color: var(--navy); margin-bottom: 0.5rem;
+  }
+  .fo-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+  /* CREDENTIALS */
+  .credentials { background: var(--navy); }
+  .creds-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px; background: rgba(184,152,90,0.15); margin-top: 4rem;
+  }
+  .cred-item {
+    background: var(--navy); padding: 2.5rem 2rem;
+    text-align: center;
+  }
+  .cred-icon {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; color: var(--gold); margin-bottom: 0.8rem;
+  }
+  .cred-item h4 {
+    font-size: 0.85rem; font-weight: 500; color: var(--cream);
+    letter-spacing: 0.05em; margin-bottom: 0.3rem;
+  }
+  .cred-item p { font-size: 0.78rem; color: rgba(250,248,243,0.5); }
+
+  /* INQUIRY FORM */
+  .inquiry-section { background: var(--cream); }
+  .inquiry-inner { max-width: 700px; margin: 0 auto; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-group label {
+    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-family: 'Jost', sans-serif; font-weight: 300;
+    background: #fff; color: var(--text);
+    border: 0.5px solid var(--border);
+    padding: 0.75rem 1rem; font-size: 0.9rem;
+    outline: none; transition: border-color 0.2s;
+    width: 100%;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--gold); }
+  .form-group textarea { min-height: 110px; resize: vertical; }
+  .form-submit {
+    margin-top: 1.8rem; text-align: center;
+  }
+  .btn-submit {
+    background: var(--navy); color: var(--cream);
+    border: none; cursor: pointer;
+    padding: 1rem 3rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    transition: background 0.25s; width: 100%;
+  }
+  .btn-submit:hover { background: var(--gold); }
+  .form-note {
+    font-size: 0.75rem; color: var(--muted); text-align: center;
+    margin-top: 1rem; letter-spacing: 0.03em;
+  }
+  .success-box {
+    display: none; text-align: center;
+    border: 0.5px solid var(--gold); padding: 3rem 2rem; background: var(--gold-pale);
+  }
+  .success-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; color: var(--navy); margin-bottom: 0.5rem;
+  }
+  .success-box p { font-size: 0.88rem; color: var(--muted); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy); color: rgba(250,248,243,0.4);
+    padding: 2rem 6rem; display: flex;
+    align-items: center; justify-content: space-between;
+    font-size: 0.72rem; letter-spacing: 0.08em;
+  }
+  footer a { color: var(--gold-light); text-decoration: none; }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; font-weight: 400; letter-spacing: 0.15em;
+    color: rgba(250,248,243,0.7);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 2.5rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 8rem 2.5rem 4rem; }
+    .hero-right { min-height: 420px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { border-right: none; border-bottom: 0.5px solid var(--border); }
+    .results-grid { grid-template-columns: repeat(2,1fr); }
+    .expertise-grid { grid-template-columns: 1fr; }
+    .origin { grid-template-columns: 1fr; gap: 3rem; }
+    .family-office { grid-template-columns: 1fr; gap: 3rem; }
+    .creds-grid { grid-template-columns: 1fr; }
+    .markets-band { padding: 2.5rem; }
+    .markets-inner { gap: 1.5rem; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-group.full { grid-column: 1; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Sonia J. LeBron</div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#origin">Background</a>
+    <a href="#family-office">Why Sonia</a>
+    <a href="#credentials">Credentials</a>
+  </div>
+  <a href="#inquiry" class="nav-cta">Private Inquiry</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding: 0;">
+  <div class="hero-left">
+    <div class="hero-tag">Private Family Office &amp; Household Leadership</div>
+    <h1>Trusted by<br><em>Extraordinary</em><br>Families.</h1>
+    <p class="hero-subtitle">Chief of Staff · Human Capital Strategist · Executive Advisor</p>
+    <p class="hero-desc">For over two decades, Sonia J. LeBron has served as the trusted advisor behind high-performing organizations. Now exclusively available to discerning ultra-high-net-worth families, entertainers, and global executives seeking world-class operational and human capital leadership.</p>
+    <div class="contract-badges">
+      <span class="cbadge">Short-Term Contracts</span>
+      <span class="cbadge">Long-Term Engagements</span>
+      <span class="cbadge">Passport Ready</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#inquiry" class="btn-primary">Request a Private Consultation</a>
+      <a href="#services" class="btn-ghost">Explore Services</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="profile.png" alt="Sonia J. LeBron" />
+    <div class="hero-right-overlay">
+      <div class="stat-grid">
+        <div class="stat-item">
+          <div class="stat-num">20+</div>
+          <div class="stat-label">Years Executive Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Bilingual English &amp; Spanish</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">NDA</div>
+          <div class="stat-label">Full Discretion, Always</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Family Office Management</span>
+    <span>Household Chief of Staff</span>
+    <span>Celebrity &amp; Entertainment Clients</span>
+    <span>Private Staff Recruitment</span>
+    <span>Estate Operations</span>
+    <span>Wealth Family Governance</span>
+    <span>Baby Care Specialist</span>
+    <span>Passport Ready</span>
+    <span>Discretion &amp; Confidentiality</span>
+    <span>Family Office Management</span>
+    <span>Household Chief of Staff</span>
+    <span>Celebrity &amp; Entertainment Clients</span>
+    <span>Private Staff Recruitment</span>
+    <span>Estate Operations</span>
+    <span>Wealth Family Governance</span>
+    <span>Baby Care Specialist</span>
+    <span>Passport Ready</span>
+    <span>Discretion &amp; Confidentiality</span>
+  </div>
+</div>
+
+<!-- MARKETS BAND -->
+<div class="markets-band">
+  <div class="markets-inner">
+    <div class="markets-label">Primary Markets</div>
+    <div class="markets-pills">
+      <span class="market-pill featured">New York City</span>
+      <span class="market-pill featured">New Jersey</span>
+      <span class="market-pill featured">California</span>
+      <span class="market-pill">Miami</span>
+      <span class="market-pill">Nationwide USA</span>
+      <span class="market-pill">International</span>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="services">
+  <div class="section-tag">What I Offer</div>
+  <h2>Services Tailored to<br><em>Exceptional</em> Households</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <h3>On-Site Chief of Staff</h3>
+      <p>Embedded executive leadership for your household or family office. I manage your private staff, coordinate cross-functional priorities, and ensure your household operates with the precision of a Fortune 500 company — all with absolute discretion. Available for temporary coverage, transitional periods, or long-term engagements.</p>
+      <div class="service-tags">
+        <span class="tag">Short-Term</span>
+        <span class="tag">Long-Term</span>
+        <span class="tag">Project-Based</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <h3>Family Office Human Capital</h3>
+      <p>From recruiting world-class household staff and private assistants to building compensation frameworks and performance systems — I bring institutional-grade people strategy to your private family enterprise. Celebrity and entertainment households welcome.</p>
+      <div class="service-tags">
+        <span class="tag">Recruitment</span>
+        <span class="tag">Compensation</span>
+        <span class="tag">Retention</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <h3>Executive Advisory &amp; Consulting</h3>
+      <p>On-demand strategic counsel for family principals, celebrities, athletes, and trustees. Whether navigating organizational transitions, managing legacy staff, or building governance frameworks — I deliver solutions with speed and sophistication.</p>
+      <div class="service-tags">
+        <span class="tag">Governance</span>
+        <span class="tag">Strategy</span>
+        <span class="tag">Advisory</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACK RECORD -->
+<section class="track">
+  <div class="section-tag">By the Numbers</div>
+  <h2>A Track Record That<br><em>Speaks for Itself</em></h2>
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="big">33%</div>
+      <p>Reduction in annual staff turnover through targeted culture transformation and engagement strategy</p>
+    </div>
+    <div class="result-card">
+      <div class="big">TA</div>
+      <p>Talent Architect who stabilizes teams, builds lasting structure, and transforms household operations from reactive to exceptional</p>
+    </div>
+    <div class="result-card">
+      <div class="big">30%</div>
+      <p>Reduction in HR-related expenses through cost-saving initiatives and vendor optimization</p>
+    </div>
+    <div class="result-card">
+      <div class="big">37%</div>
+      <p>Headcount scaled in just 90 days during a period of rapid organizational growth</p>
+    </div>
+  </div>
+</section>
+
+<!-- ORIGIN STORY -->
+<section id="origin" class="origin" style="padding: 7rem 6rem;">
+  <div>
+    <div class="section-tag">From the Industry</div>
+    <h2>I Know This World<br><em>From the Inside</em></h2>
+    <p>My career didn't begin in a boardroom — it began on the ground floor of private domestic service. I worked as a household manager and as a certified baby care specialist inside high-net-worth homes. I didn't just observe how exceptional households operate. I ran them.</p>
+    <p>That hands-on foundation — combined with my MBA, SPHR designation, and two decades of executive leadership — means I bring something rare to every engagement: the empathy of someone who has done the work, and the strategic rigor of someone who has led at the highest levels.</p>
+    <p>I leveled up. And now I bring that full journey to your family.</p>
+  </div>
+  <div class="origin-cards">
+    <div class="origin-card">
+      <div class="oc-tag">Where I started</div>
+      <h4>Private Household Manager</h4>
+      <p>Hands-on management of high-net-worth private residences — staff oversight, household systems, vendor coordination, and daily estate operations.</p>
+    </div>
+    <div class="origin-card">
+      <div class="oc-tag">Specialized Care</div>
+      <h4>Certified Baby Care Specialist</h4>
+      <p>Newborn and infant specialist with direct experience in postpartum household support, sleep scheduling, feeding routines, and developmental care.</p>
+    </div>
+    <div class="origin-card">
+      <div class="oc-tag">The Elevation</div>
+      <h4>MBA · SPHR · Executive Advisor</h4>
+      <p>From practitioner to principal — bringing the credibility of lived experience and the authority of institutional expertise to every client relationship.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE COLUMNS -->
+<section class="expertise">
+  <div class="section-tag">Core Competencies</div>
+  <h2>Where <em>Mastery</em> Meets<br>Your Family's Needs</h2>
+  <div class="expertise-grid">
+    <div class="expertise-col">
+      <h3>Household &amp; Family Office Operations</h3>
+      <div class="expertise-item">
+        <div class="expertise-icon">◆</div>
+        <p><strong>Private Staff Management</strong>Chief of Staff-level oversight of household employees including estate managers, personal assistants, household managers, and domestic staff.</p>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">◆</div>
+        <p><strong>Recruiting &amp; Vetting Elite Talent</strong>Rigorous screening, compensation benchmarking, and onboarding of high-caliber private service professionals with full confidentiality.</p>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">◆</div>
+        <p><strong>Family Governance &amp; Policy</strong>Designing household operating procedures, employment policies, NDA frameworks, and staff handbooks aligned to family values.</p>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">◆</div>
+        <p><strong>Conflict Resolution</strong>Decades of sensitive employee relations expertise — de-escalating issues quietly and professionally before they become problems.</p>
+      </div>
+    </div>
+    <div class="expertise-col">
+      <h3>Strategic Human Capital Leadership</h3>
+      <div class="expertise-item">
+        <div class="expertise-icon">◆</div>
+        <p><strong>Celebrity &amp; High-Profile Principal Experience</strong>Deep understanding of the privacy demands, scheduling complexity, and lifestyle requirements of entertainment industry clients, athletes, and public figures.</p>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">◆</div>
+        <p><strong>Compensation &amp; Benefits Architecture</strong>Building pay structures and benefits programs that attract and retain exceptional private household professionals at every level.</p>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">◆</div>
+        <p><strong>Executive Coaching &amp; Development</strong>One-on-one coaching for rising family members and key staff — building the leadership capability your legacy requires.</p>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">◆</div>
+        <p><strong>Multi-Location &amp; International Engagements</strong>Passport-ready and available for extended travel, multi-residence management, and global assignments wherever your family needs to be.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SONIA / FAMILY OFFICE -->
+<section id="family-office" class="family-office" style="padding: 7rem 6rem;">
+  <div>
+    <div class="section-tag">Why Sonia</div>
+    <h2>Built for the<br><em>Demands of Private</em><br>Family Service</h2>
+    <p>Ultra-high-net-worth families, celebrities, and global executives have needs that no standard consultant is equipped to meet. You require someone who has managed complexity at scale — and who can apply that expertise with the discretion, warmth, and personal attention that only private service demands.</p>
+    <p>Sonia brings a rare combination: the strategic rigor of a Fortune 500 executive advisor, the grounded credibility of someone who has worked inside private homes, and the bilingual fluency (English &amp; Spanish) to serve families across cultures and geographies.</p>
+    <ul class="checklist">
+      <li>Absolute discretion and confidentiality — always</li>
+      <li>Short-term, long-term, and transitional contracts available</li>
+      <li>Passport-ready — available for domestic and international travel</li>
+      <li>Celebrity, athlete, and entertainment household experience</li>
+      <li>Experienced managing multi-location, multi-national household staff</li>
+      <li>Bilingual English/Spanish for international families</li>
+      <li>MBA + SPHR certified — institutional rigor at your service</li>
+    </ul>
+  </div>
+  <div class="fo-visual">
+    <div class="fo-card">
+      <h4>The On-Site Chief of Staff</h4>
+      <p>Embedded in your household, I function as your senior-most operational leader — managing staff, vendors, schedules, and priorities so your family's time and energy are spent where they matter most.</p>
+    </div>
+    <div class="fo-card">
+      <h4>The Strategic Consultant</h4>
+      <p>Engaged on a project or retainer basis, I advise on people strategy, staff transitions, compensation benchmarking, and organizational structure — delivering institutional-quality thinking on your timeline.</p>
+    </div>
+    <div class="fo-card">
+      <h4>The Trusted Advisor</h4>
+      <p>For principals who want a standing relationship with a senior advisor — available when you need clarity, discretion, and executive judgment on matters involving your most important asset: your people.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section id="credentials" class="credentials">
+  <div class="section-tag" style="color: var(--gold-light);">Education &amp; Credentials</div>
+  <h2 style="color: var(--cream);">The Foundation of<br><em>Exceptional</em> Advisory</h2>
+  <div class="creds-grid">
+    <div class="cred-item">
+      <div class="cred-icon">MBA</div>
+      <h4>Master of Business Administration</h4>
+      <p>Alvernia University, Reading, PA</p>
+    </div>
+    <div class="cred-item">
+      <div class="cred-icon">SPHR</div>
+      <h4>Senior Professional in Human Resources</h4>
+      <p>Rutgers University Certification</p>
+    </div>
+    <div class="cred-item">
+      <div class="cred-icon">ES</div>
+      <h4>Bilingual English &amp; Spanish</h4>
+      <p>Full professional fluency in both languages</p>
+    </div>
+  </div>
+</section>
+
+<!-- INQUIRY FORM -->
+<section id="inquiry" class="inquiry-section">
+  <div style="text-align: center; margin-bottom: 3rem;">
+    <div class="section-tag" style="justify-content: center;">Begin the Conversation</div>
+    <h2>Ready to Experience<br><em>World-Class</em> Private Service?</h2>
+    <p style="font-size: 0.92rem; color: var(--muted); max-width: 520px; margin: 0.8rem auto 0; line-height: 1.85;">Engagements are limited and acceptance is selective. All inquiries are handled personally and in strict confidence.</p>
+  </div>
+  <div class="inquiry-inner">
+    <div id="inquiry-form">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" id="f-first" placeholder="First name" />
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" id="f-last" placeholder="Last name" />
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="f-email" placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Phone Number <span style="color:var(--muted);font-size:0.7em;letter-spacing:0;">(optional)</span></label>
+          <input type="tel" id="f-phone" placeholder="(000) 000-0000" />
+        </div>
+        <div class="form-group">
+          <label>City / Location</label>
+          <input type="text" id="f-city" placeholder="New York, NY" />
+        </div>
+        <div class="form-group">
+          <label>Service Needed</label>
+          <select id="f-service">
+            <option value="">Select a service...</option>
+            <option>On-Site Chief of Staff</option>
+            <option>Family Office Human Capital</option>
+            <option>Private Staff Recruitment &amp; Vetting</option>
+            <option>Newborn / Baby Care Specialist Placement</option>
+            <option>Short-Term / Temporary Coverage</option>
+            <option>Long-Term Household Engagement</option>
+            <option>International / Travel Assignment</option>
+            <option>Executive Advisory / Consulting</option>
+            <option>Other / Unsure</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Preferred Engagement</label>
+          <select id="f-contract">
+            <option value="">Contract type...</option>
+            <option>Short-Term (days to weeks)</option>
+            <option>Medium-Term (1–3 months)</option>
+            <option>Long-Term (3+ months)</option>
+            <option>Ongoing / Permanent</option>
+            <option>Flexible / To Be Determined</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label>Tell Us About Your Household Needs</label>
+          <textarea id="f-notes" placeholder="Please describe your household, location(s), staff structure, and what you're looking for. All information is treated with complete discretion."></textarea>
+        </div>
+        <div class="form-group full">
+          <label>How Did You Hear About Sonia?</label>
+          <select id="f-source">
+            <option value="">Select...</option>
+            <option>LinkedIn — Sonia LeBron</option>
+            <option>Personal Referral</option>
+            <option>Web Search</option>
+            <option>Industry Contact</option>
+            <option>Social Media</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-submit">
+        <button class="btn-submit" onclick="handleSubmit()">Submit Confidential Inquiry</button>
+      </div>
+      <p class="form-note">Your information is never shared or sold. Expect a personal response within 24–48 hours.</p>
+    </div>
+    <div class="success-box" id="success-box">
+      <h3>Your Inquiry Has Been Received.</h3>
+      <p>Thank you for reaching out. All inquiries are reviewed personally by Sonia and responded to within 24–48 hours with complete discretion.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Sonia J. LeBron, MBA, SPHR</div>
+  <div>Private Family Advisory &nbsp;·&nbsp; Household Chief of Staff &nbsp;·&nbsp; Human Capital Consulting</div>
+  <div>
+    USA — Available Nationally &amp; Internationally
+    &nbsp;|&nbsp;
+    <a href="https://www.linkedin.com/in/sonia-l-0a7a4822b/" target="_blank">Sonia LeBron | LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+function handleSubmit() {
+  const first = document.getElementById('f-first').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const service = document.getElementById('f-service').value;
+  if (!first || !email || !service) {
+    alert('Please fill in your name, email address, and the service you need.');
+    return;
+  }
+  document.getElementById('inquiry-form').style.display = 'none';
+  document.getElementById('success-box').style.display = 'block';
+  document.getElementById('success-box').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
