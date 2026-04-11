@@ -42,7 +42,7 @@
   }
   .nav-logo {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem; font-weight: 400; letter-spacing: 0.12em;
+    font-size: 1.1rem; font-weight: 400; letter-spacing: 0.12em;
     text-transform: uppercase; color: var(--navy);
   }
   .nav-links { display: flex; gap: 2.5rem; }
@@ -63,7 +63,7 @@
   /* HERO */
   .hero {
     min-height: 100vh;
-    display: grid; grid-template-columns: 1.2fr 0.8fr;
+    display: grid; grid-template-columns: 1fr 1fr;
     padding-top: 5rem;
   }
   .hero-left {
@@ -71,6 +71,22 @@
     padding: 6rem 4rem 6rem 6rem;
     position: relative;
   }
+  
+  .profile-container {
+    width: 220px;
+    height: 220px;
+    margin-bottom: 2.5rem;
+  }
+  .profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    padding: 5px;
+    background: white;
+  }
+
   .hero-tag {
     font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
     color: var(--gold); margin-bottom: 1.8rem;
@@ -81,7 +97,7 @@
   }
   h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    font-size: clamp(3rem, 5vw, 4.2rem);
     font-weight: 300; line-height: 1.1;
     color: var(--navy); margin-bottom: 0.3rem;
   }
@@ -89,28 +105,10 @@
   .hero-subtitle {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.15rem; font-weight: 300; font-style: italic;
-    color: var(--muted); margin-bottom: 2rem; letter-spacing: 0.03em;
+    color: var(--muted); margin-bottom: 2.5rem; letter-spacing: 0.03em;
   }
-  
-  /* PHOTO STYLING */
-  .profile-container {
-    width: 240px;
-    height: 240px;
-    margin-bottom: 3rem; /* Spacing below photo with nothing in between */
-    position: relative;
-  }
-  .profile-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 1px solid var(--gold);
-    padding: 6px;
-    background: white;
-  }
-
   .hero-desc {
-    font-size: 0.95rem; color: var(--muted); max-width: 500px;
+    font-size: 0.95rem; color: var(--muted); max-width: 440px;
     margin-bottom: 3rem; line-height: 1.85;
   }
   .hero-actions { display: flex; gap: 1.2rem; align-items: center; }
@@ -137,13 +135,13 @@
     position: relative; overflow: hidden;
   }
   .stat-grid {
-    display: grid; grid-template-columns: 1fr;
+    display: grid; grid-template-columns: 1fr 1fr;
     gap: 2.5rem; position: relative; z-index: 1;
   }
   .stat-item { border-top: 0.5px solid rgba(184,152,90,0.4); padding-top: 1.2rem; }
   .stat-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem; font-weight: 300; color: var(--gold);
+    font-size: 2.8rem; font-weight: 300; color: var(--gold);
     line-height: 1; margin-bottom: 0.4rem;
   }
   .stat-label {
@@ -193,53 +191,8 @@
     transition: background 0.3s;
   }
   .service-card:hover { background: var(--gold-pale); }
-  .service-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem; font-weight: 300; color: var(--border);
-    line-height: 1; margin-bottom: 1.5rem;
-  }
   .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 0.8rem; }
   .service-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.8; }
-
-  /* LINKEDIN REDIRECT SECTION */
-  .linkedin-section {
-    background: #fff;
-    text-align: center;
-    padding: 6rem 4rem;
-    border-top: 0.5px solid var(--border);
-  }
-  .linkedin-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    text-decoration: none;
-    color: var(--navy);
-    font-size: 0.8rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    border: 1px solid var(--navy);
-    padding: 1.2rem 2.5rem;
-    transition: all 0.3s;
-    margin-top: 2rem;
-  }
-  .linkedin-btn:hover {
-    background: var(--navy);
-    color: var(--cream);
-  }
-
-  /* TRACK RECORD */
-  .track { background: var(--navy); color: var(--cream); }
-  .results-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 2px; margin-top: 4rem; background: rgba(184,152,90,0.2);
-  }
-  .result-card { background: var(--navy); padding: 2.5rem 2rem; }
-  .result-card .big {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem; font-weight: 300; color: var(--gold);
-    line-height: 1; margin-bottom: 0.5rem;
-  }
-  .result-card p { font-size: 0.82rem; color: rgba(250,248,243,0.6); }
 
   /* CREDENTIALS */
   .credentials { background: var(--navy); }
@@ -248,7 +201,7 @@
     gap: 2px; background: rgba(184,152,90,0.15); margin-top: 4rem;
   }
   .cred-item { background: var(--navy); padding: 2.5rem 2rem; text-align: center; }
-  .cred-icon { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold); margin-bottom: 0.8rem; }
+  .cred-icon { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 0.8rem; }
   .cred-item h4 { font-size: 0.85rem; color: var(--cream); letter-spacing: 0.05em; }
 
   /* FOOTER */
@@ -258,12 +211,12 @@
     align-items: center; justify-content: space-between;
     font-size: 0.72rem; letter-spacing: 0.08em;
   }
-  footer a { color: var(--gold-light); text-decoration: none; }
 
   @media (max-width: 1024px) {
     .hero { grid-template-columns: 1fr; }
-    .hero-left { padding: 8rem 2rem 4rem; }
-    .services-grid, .results-grid, .creds-grid { grid-template-columns: 1fr; }
+    .hero-left { padding: 8rem 2.5rem 4rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .creds-grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 1.5rem; text-align: center; }
   }
 </style>
@@ -273,8 +226,7 @@
 <nav>
   <div class="nav-logo">Sonia J. LeBron, MBA, SPHR</div>
   <div class="nav-links">
-    <a href="#services">Expertise</a>
-    <a href="#about">Experience</a>
+    <a href="#services">Services</a>
     <a href="#credentials">Credentials</a>
     <a href="#contact">Contact</a>
   </div>
@@ -286,95 +238,8 @@
     <div class="profile-container">
       <img src="profile.png" alt="Sonia J. LeBron, MBA, SPHR" class="profile-img">
     </div>
-    
-    <div class="hero-tag">NYC · Domestic USA · International</div>
+    <div class="hero-tag">Domestic USA · International</div>
     <h1>Trusted by<br><em>Extraordinary</em><br>Families.</h1>
     <p class="hero-subtitle">Chief of Staff · House Manager · Executive Advisor</p>
-    <p class="hero-desc">Sonia J. LeBron, MBA, SPHR, provides high-level talent architecture and operational stabilization for UHNW families, celebrities, and private estates. Discreet, NDA-compliant leadership for those who require world-class domestic care.</p>
-    
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Send Private Inquiry</a>
-      <a href="https://www.linkedin.com/in/sonia-lebron-b3b279299/" target="_blank" class="btn-ghost">Sonia LeBron | LinkedIn</a>
-    </div>
-  </div>
-  
-  <div class="hero-right">
-    <div class="stat-grid">
-      <div class="stat-item">
-        <div class="stat-num">20+</div>
-        <div class="stat-label">Years Institutional Leadership</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">DISCREET</div>
-        <div class="stat-label">Strict NDA Compliance</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">UHNW</div>
-        <div class="stat-label">Celebrity & Private Estate Expertise</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">GLOBAL</div>
-        <div class="stat-label">Travel & Relocation Ready</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="marquee-wrap" aria-hidden="true">
-  <div class="marquee-track">
-    <span>Household Chief of Staff</span>
-    <span>Domestic Care Management</span>
-    <span>Estate House Manager</span>
-    <span>Strict NDA Compliance</span>
-    <span>Discreet Celebrity Service</span>
-    <span>Talent Architecture</span>
-    <span>International Operations</span>
-    <span>Household Chief of Staff</span>
-    <span>Domestic Care Management</span>
-  </div>
-</div>
-
-<section id="services" class="services">
-  <div class="section-tag">Core Services</div>
-  <h2>Sophisticated<br><em>Domestic</em> Leadership</h2>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-num">01</div>
-      <h3>Chief of Staff & House Manager</h3>
-      <p>Comprehensive oversight of luxury estates. I manage private staff, vendors, and multi-property logistics with absolute precision and professional warmth.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">02</div>
-      <h3>Domestic Care & Recruitment</h3>
-      <p>Building world-class household teams. From vetting elite domestic staff to creating training manuals and retention programs for high-profile principals.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">03</div>
-      <h3>Operational Stabilization</h3>
-      <p>Managing family office transitions, legacy staff disputes, and household policy design—all delivered with a high-degree of executive judgment.</p>
-    </div>
-  </div>
-</section>
-
-<section id="about" class="linkedin-section">
-  <div class="section-tag" style="justify-content: center;">Professional History</div>
-  <h2>Institutional Rigor. Private Discretion.</h2>
-  <p style="max-width: 700px; margin: 0 auto; color: var(--muted); line-height: 1.8;">With a background in talent architecture for global divisions, Sonia brings a rare level of professional certification (MBA, SPHR) to the world of private service.</p>
-  <a href="https://www.linkedin.com/in/sonia-lebron-b3b279299/" target="_blank" class="linkedin-btn">
-    Sonia LeBron | LinkedIn
-  </a>
-</section>
-
-<section class="track">
-  <div class="section-tag">Performance Metrics</div>
-  <h2>A Record of Stability</h2>
-  <div class="results-grid">
-    <div class="result-card"><div class="big">33%</div><p>Reduction in annual staff turnover</p></div>
-    <div class="result-card"><div class="big">43%</div><p>Productivity increase in core operations</p></div>
-    <div class="result-card"><div class="big">30%</div><p>Optimization of household & HR expenses</p></div>
-    <div class="result-card"><div class="big">37%</div><p>Staff scaling & training in under 90 days</p></div>
-  </div>
-</section>
-
-<section id="credentials" class="credentials">
-  <div class="section-
+    <p class="hero-desc">Sonia J. LeBron, MBA, SPHR, provides world-class operational leadership and human capital strategy for discerning ultra-high-net-worth families, celebrities, and private estates. Discreet and NDA-compliant.</p>
+    <div class="
