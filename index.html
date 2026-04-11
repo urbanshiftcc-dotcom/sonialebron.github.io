@@ -1,533 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sonia J. LeBron | Private Family Office & Strategic HR Ops</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --navy: #0A192F;
-            --navy-mid: #162840;
-            --gold: #C5A059;
-            --gold-light: #D4B87A;
-            --gold-pale: #F8F2E6;
-            --slate: #4A5568;
-            --white: #F8F9FA;
-            --cream: #FDFCF9;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sonia J. LeBron, MBA, SPHR — Private Family Office & Chief of Staff</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+  :root {
+    --gold: #B8985A;
+    --gold-light: #D4B87A;
+    --gold-pale: #F5EDD8;
+    --navy: #0D1B2A;
+    --navy-mid: #1A2E42;
+    --cream: #FAF8F3;
+    --text: #1A1A18;
+    --muted: #6B6559;
+    --border: rgba(184,152,90,0.25);
+  }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--cream);
-            color: var(--navy);
-            line-height: 1.7;
-            font-weight: 300;
-            overflow-x: hidden;
-        }
+  html { scroll-behavior: smooth; }
 
-        /* ── HEADER ── */
-        header {
-            padding: 1.4rem 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(253,252,249,0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(197,160,89,0.2);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.35rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--navy);
-        }
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-        }
-        .header-nav {
-            display: flex;
-            gap: 2rem;
-        }
-        .header-nav a {
-            font-size: 0.7rem;
-            font-weight: 500;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: var(--slate);
-            transition: color 0.2s;
-        }
-        .header-nav a:hover { color: var(--gold); }
-        .header-cta {
-            font-size: 0.68rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: var(--navy);
-            border: 1px solid var(--gold);
-            padding: 0.55rem 1.3rem;
-            transition: all 0.25s;
-        }
-        .header-cta:hover { background: var(--gold); color: #fff; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
 
-        /* ── HERO ── */
-        .hero {
-            display: flex;
-            align-items: stretch;
-            min-height: 90vh;
-        }
-        .hero-content {
-            flex: 1.1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 6rem 5% 6rem 8%;
-            background: var(--cream);
-            position: relative;
-        }
-        .hero-content::after {
-            content: '';
-            position: absolute; right: 0; top: 10%; bottom: 10%;
-            width: 1px;
-            background: linear-gradient(to bottom, transparent, rgba(197,160,89,0.4), transparent);
-        }
-        .hero-eyebrow {
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        .hero-eyebrow::before {
-            content: '';
-            display: block;
-            width: 36px; height: 1px;
-            background: var(--gold);
-        }
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.6rem, 4.5vw, 4rem);
-            font-weight: 700;
-            line-height: 1.15;
-            color: var(--navy);
-            margin-bottom: 1.5rem;
-        }
-        h1 em {
-            font-style: italic;
-            font-weight: 400;
-            color: var(--gold);
-        }
-        .tagline {
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--slate);
-            margin-bottom: 1.2rem;
-        }
-        .hero-desc {
-            font-size: 0.93rem;
-            color: var(--slate);
-            max-width: 460px;
-            line-height: 1.9;
-            margin-bottom: 2.5rem;
-        }
-        .hero-actions {
-            display: flex;
-            gap: 1.2rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.4rem;
-            background-color: var(--navy);
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.7rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-        .cta-button:hover { background-color: var(--gold); }
-        .cta-ghost {
-            font-size: 0.7rem;
-            font-weight: 500;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: var(--navy);
-            border-bottom: 1px solid var(--navy);
-            padding-bottom: 2px;
-            transition: all 0.25s;
-        }
-        .cta-ghost:hover { color: var(--gold); border-color: var(--gold); }
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.5rem 4rem;
+    background: rgba(250,248,243,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; font-weight: 400; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--navy);
+  }
+  .nav-links { display: flex; gap: 2.5rem; }
+  .nav-links a {
+    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+    text-decoration: none; color: var(--muted); transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    text-decoration: none; color: var(--navy);
+    border: 0.5px solid var(--gold);
+    padding: 0.6rem 1.4rem;
+    transition: all 0.25s;
+  }
+  .nav-cta:hover { background: var(--gold); color: #fff; }
 
-        .hero-image {
-            flex: 0.9;
-            background: var(--navy);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 5rem 4%;
-            position: relative;
-            overflow: hidden;
-        }
-        .photo-frame {
-            position: relative;
-            z-index: 1;
-            width: 78%;
-            max-width: 360px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-        }
-        .photo-frame img {
-            width: 100%;
-            display: block;
-            border-radius: 2px;
-            filter: grayscale(10%);
-        }
-        .hero-stats {
-            position: relative;
-            z-index: 1;
-            width: 78%;
-            max-width: 360px;
-            margin-top: 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1px;
-            background: rgba(197,160,89,0.2);
-        }
-        .hero-stat {
-            background: var(--navy);
-            padding: 1.2rem 1rem;
-        }
-        .hero-stat .num {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--gold);
-            line-height: 1;
-            margin-bottom: 0.3rem;
-        }
-        .hero-stat .lbl {
-            font-size: 0.62rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: rgba(248,249,250,0.45);
-        }
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1.2fr 0.8fr;
+    padding-top: 5rem;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 4rem 6rem 6rem;
+    position: relative;
+  }
+  .hero-tag {
+    font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.8rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .hero-tag::before {
+    content: ''; display: block; width: 40px; height: 0.5px; background: var(--gold);
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    font-weight: 300; line-height: 1.1;
+    color: var(--navy); margin-bottom: 0.3rem;
+  }
+  h1 em { font-style: italic; color: var(--gold); }
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 300; font-style: italic;
+    color: var(--muted); margin-bottom: 2rem; letter-spacing: 0.03em;
+  }
+  
+  /* PHOTO STYLING */
+  .profile-container {
+    width: 220px;
+    height: 220px;
+    margin-bottom: 2.5rem;
+    position: relative;
+  }
+  .profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    padding: 5px;
+    background: white;
+  }
 
-        /* ── MARQUEE ── */
-        .marquee-wrap {
-            background: var(--gold);
-            padding: 0.75rem 0;
-            overflow: hidden;
-        }
-        .marquee-track {
-            display: flex;
-            white-space: nowrap;
-            animation: marquee 32s linear infinite;
-        }
-        .marquee-track span {
-            font-size: 0.62rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--navy);
-            padding: 0 2.5rem;
-        }
-        .marquee-track span::after { content: '◆'; padding-left: 2.5rem; opacity: 0.45; }
-        @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .hero-desc {
+    font-size: 0.95rem; color: var(--muted); max-width: 480px;
+    margin-bottom: 3rem; line-height: 1.85;
+  }
+  .hero-actions { display: flex; gap: 1.2rem; align-items: center; }
+  .btn-primary {
+    display: inline-block; text-decoration: none;
+    background: var(--navy); color: var(--cream);
+    padding: 1rem 2.4rem;
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    transition: all 0.25s;
+  }
+  .btn-primary:hover { background: var(--gold); }
+  .btn-ghost {
+    display: inline-block; text-decoration: none;
+    color: var(--navy); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    border-bottom: 0.5px solid var(--navy); padding-bottom: 2px;
+    transition: all 0.25s;
+  }
+  .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
 
-        /* ── SECTION COMMONS ── */
-        section { padding: 6rem 8%; }
-        .section-label {
-            font-size: 0.62rem;
-            font-weight: 600;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--gold);
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 0.9rem;
-        }
-        .section-label::before {
-            content: '';
-            display: block;
-            width: 28px; height: 1px;
-            background: var(--gold);
-        }
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 3vw, 2.6rem);
-            font-weight: 700;
-            color: var(--navy);
-            line-height: 1.25;
-            margin-bottom: 0.8rem;
-        }
-        h2 em { font-style: italic; font-weight: 400; color: var(--gold); }
+  .hero-right {
+    background: var(--navy);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 5rem;
+    position: relative; overflow: hidden;
+  }
+  .stat-grid {
+    display: grid; grid-template-columns: 1fr;
+    gap: 2.5rem; position: relative; z-index: 1;
+  }
+  .stat-item { border-top: 0.5px solid rgba(184,152,90,0.4); padding-top: 1.2rem; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem; font-weight: 300; color: var(--gold);
+    line-height: 1; margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(250,248,243,0.55);
+  }
 
-        /* ── SERVICES ── */
-        .services { background: #fff; }
-        .services-intro { max-width: 520px; font-size: 0.9rem; color: var(--slate); margin-bottom: 3.5rem; line-height: 1.85; }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 0;
-            border: 1px solid rgba(197,160,89,0.2);
-        }
-        .service-card {
-            padding: 2.5rem 2.2rem;
-            border-right: 1px solid rgba(197,160,89,0.2);
-            transition: background 0.3s;
-        }
-        .service-card:last-child { border-right: none; }
-        .service-card:hover { background: var(--gold-pale); transform: translateY(-3px); }
-        .service-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: rgba(197,160,89,0.18);
-            line-height: 1;
-            margin-bottom: 1.2rem;
-        }
-        .service-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 0.8rem;
-        }
-        .service-card p { font-size: 0.86rem; color: var(--slate); line-height: 1.85; }
-        .service-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.2rem; }
-        .tag {
-            font-size: 0.6rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 0.3rem 0.65rem;
-            border: 1px solid rgba(197,160,89,0.35);
-            color: var(--gold);
-        }
+  /* MARQUEE */
+  .marquee-wrap {
+    background: var(--gold);
+    padding: 0.8rem 0; overflow: hidden;
+  }
+  .marquee-track {
+    display: flex; gap: 0; white-space: nowrap;
+    animation: marquee 30s linear infinite;
+  }
+  .marquee-track span {
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--navy); padding: 0 2.5rem;
+  }
+  .marquee-track span::after { content: '◆'; padding-left: 2.5rem; opacity: 0.5; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-        /* ── METRICS ── */
-        .metrics {
-            padding: 5rem 0;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2px;
-            background-color: rgba(197,160,89,0.2);
-        }
-        .metric-item {
-            background: var(--navy);
-            padding: 2.5rem 2rem;
-            text-align: center;
-        }
-        .metric-item h2 {
-            font-size: 2.8rem;
-            color: var(--gold);
-            margin-bottom: 0.4rem;
-        }
-        .metric-item p { font-size: 0.75rem; color: rgba(248,249,250,0.55); letter-spacing: 0.08em; }
+  /* SECTION COMMONS */
+  section { padding: 7rem 6rem; }
+  .section-tag {
+    font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .section-tag::before { content: ''; display: block; width: 30px; height: 0.5px; background: var(--gold); }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300; color: var(--navy); line-height: 1.2; margin-bottom: 1rem;
+  }
 
-        /* ── EXPERIENCE TIMELINE ── */
-        .experience { background: var(--cream); }
-        .timeline { margin-top: 3.5rem; position: relative; padding-left: 1.8rem; }
-        .timeline::before {
-            content: '';
-            position: absolute; left: 0; top: 0; bottom: 0;
-            width: 1px;
-            background: rgba(197,160,89,0.3);
-        }
-        .timeline-item { padding: 0 0 3rem 2.8rem; position: relative; }
-        .timeline-item::before {
-            content: '';
-            position: absolute; left: -5px; top: 0.4rem;
-            width: 10px; height: 10px; border-radius: 50%;
-            background: var(--cream);
-            border: 1.5px solid var(--gold);
-        }
-        .timeline-item h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 0.15rem;
-        }
-        .timeline-item .company {
-            font-size: 0.78rem;
-            color: var(--slate);
-            margin-bottom: 0.9rem;
-        }
-        .timeline-item ul { list-style: none; }
-        .timeline-item ul li {
-            font-size: 0.86rem;
-            color: var(--slate);
-            line-height: 1.75;
-            padding: 0.2rem 0;
-            display: flex;
-            gap: 0.7rem;
-            align-items: flex-start;
-        }
-        .timeline-item ul li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+  /* SERVICES */
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0; margin-top: 4rem;
+    border: 0.5px solid var(--border);
+  }
+  .service-card {
+    padding: 2.8rem 2.4rem;
+    border-right: 0.5px solid var(--border);
+    transition: background 0.3s;
+  }
+  .service-card:hover { background: var(--gold-pale); }
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; font-weight: 300; color: var(--border);
+    line-height: 1; margin-bottom: 1.5rem;
+  }
+  .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 0.8rem; }
+  .service-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.8; }
 
-        /* ── CONTACT ── */
-        .contact-section {
-            background: var(--cream);
-            text-align: center;
-            padding: 8rem 8%;
-        }
-        .contact-pills {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        .contact-pill {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            padding: 0.9rem 1.8rem;
-            border: 1px solid rgba(197,160,89,0.35);
-            font-size: 0.8rem;
-            color: var(--navy);
-            text-decoration: none;
-            transition: all 0.25s;
-        }
-        .contact-pill:hover { border-color: var(--gold); color: var(--gold); }
+  /* LINKEDIN REDIRECT SECTION */
+  .linkedin-section {
+    background: #fff;
+    text-align: center;
+    padding: 6rem 4rem;
+    border-top: 0.5px solid var(--border);
+  }
+  .linkedin-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--navy);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: 1px solid var(--navy);
+    padding: 1.2rem 2.5rem;
+    transition: all 0.3s;
+    margin-top: 2rem;
+  }
+  .linkedin-btn:hover {
+    background: var(--navy);
+    color: var(--cream);
+  }
 
-        footer {
-            background: var(--navy);
-            color: rgba(248,249,250,0.4);
-            padding: 2rem 8%;
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.7rem;
-        }
-    </style>
+  /* TRACK RECORD */
+  .track { background: var(--navy); color: var(--cream); }
+  .results-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 2px; margin-top: 4rem; background: rgba(184,152,90,0.2);
+  }
+  .result-card { background: var(--navy); padding: 2.5rem 2rem; }
+  .result-card .big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 300; color: var(--gold);
+    line-height: 1; margin-bottom: 0.5rem;
+  }
+  .result-card p { font-size: 0.82rem; color: rgba(250,248,243,0.6); }
+
+  /* CREDENTIALS */
+  .credentials { background: var(--navy); }
+  .creds-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px; background: rgba(184,152,90,0.15); margin-top: 4rem;
+  }
+  .cred-item { background: var(--navy); padding: 2.5rem 2rem; text-align: center; }
+  .cred-icon { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 0.8rem; }
+  .cred-item h4 { font-size: 0.85rem; color: var(--cream); letter-spacing: 0.05em; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy); color: rgba(250,248,243,0.4);
+    padding: 3rem 6rem; display: flex;
+    align-items: center; justify-content: space-between;
+    font-size: 0.72rem; letter-spacing: 0.08em;
+  }
+  footer a { color: var(--gold-light); text-decoration: none; }
+
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 8rem 2rem 4rem; }
+    .services-grid, .results-grid, .creds-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+  }
+</style>
 </head>
 <body>
 
-<header>
-    <div class="logo">SONIA J. LEBRON</div>
-    <div class="header-right">
-        <nav class="header-nav">
-            <a href="#services">Services</a>
-            <a href="#experience">Experience</a>
-            <a href="#contact">Contact</a>
-        </nav>
-        <a href="#contact" class="header-cta">Private Inquiry</a>
-    </div>
-</header>
+<nav>
+  <div class="nav-logo">Sonia J. LeBron, MBA, SPHR</div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#credentials">Credentials</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Private Inquiry</a>
+</nav>
 
 <section class="hero" style="padding: 0;">
-    <div class="hero-content">
-        <div class="hero-eyebrow">Private Family Office & Chief of Staff</div>
-        <div class="tagline">Stabilizing Complexity. Protecting Your Legacy.</div>
-        <h1>The Strategic Partner for<br><em>Private Families</em><br>&amp; Global Operations.</h1>
-        <p class="hero-desc">20+ years of talent architecture and organizational mastery — now exclusively available to high-net-worth families seeking discreet, world-class household leadership.</p>
-        <div class="hero-actions">
-            <a href="#contact" class="cta-button">Request a Private Consultation</a>
-        </div>
+  <div class="hero-left">
+    <div class="profile-container">
+      <img src="profile.png" alt="Sonia J. LeBron, MBA, SPHR" class="profile-img">
     </div>
-    <div class="hero-image">
-        <div class="photo-frame">
-            <img src="profile.png" alt="Sonia J. LeBron">
-        </div>
-        <div class="hero-stats">
-            <div class="hero-stat"><div class="num">20+</div><div class="lbl">Years Experience</div></div>
-            <div class="hero-stat"><div class="num">30%</div><div class="lbl">Expense Reduction</div></div>
-        </div>
+    
+    <div class="hero-tag">NYC & International Travel Ready</div>
+    <h1>Trusted by<br><em>Extraordinary</em><br>Families.</h1>
+    <p class="hero-subtitle">Chief of Staff · Human Capital Strategist · Executive Advisor</p>
+    <p class="hero-desc">For over two decades, Sonia J. LeBron, MBA, SPHR, has served as a human capital leader for global organizations. Now, she brings that institutional rigor to the private service of ultra-high-net-worth households.</p>
+    
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Request Consultation</a>
+      <a href="https://www.linkedin.com/in/sonia-lebron-b3b279299/" target="_blank" class="btn-ghost">View LinkedIn Profile</a>
     </div>
+  </div>
+  
+  <div class="hero-right">
+    <div class="stat-grid">
+      <div class="stat-item">
+        <div class="stat-num">20+</div>
+        <div class="stat-label">Years Executive Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">NYC</div>
+        <div class="stat-label">New York City Market Specialist</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">GLOBAL</div>
+        <div class="stat-label">International Travel Ready</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Bilingual English & Spanish</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<div class="marquee-wrap">
-    <div class="marquee-track">
-        <span>Family Office Management</span><span>Household Chief of Staff</span>
-        <span>Private Staff Recruitment</span><span>Talent & Culture Strategy</span>
-        <span>Estate Operations</span><span>Discretion & Confidentiality</span>
-    </div>
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Family Office Management</span>
+    <span>NYC & International Ready</span>
+    <span>Household Chief of Staff</span>
+    <span>Private Staff Recruitment</span>
+    <span>Estate Operations</span>
+    <span>Discretion & Confidentiality</span>
+    <span>Family Office Management</span>
+    <span>NYC & International Ready</span>
+    <span>Household Chief of Staff</span>
+  </div>
 </div>
 
 <section id="services" class="services">
-    <div class="section-label">What I Offer</div>
-    <h2>Services Tailored to<br><em>Exceptional</em> Households</h2>
-    <div class="services-grid">
-        <div class="service-card">
-            <div class="service-num">01</div>
-            <h3>Private Family Office</h3>
-            <p>Full-scale lifestyle management and household stabilization. I bring Fortune 500 rigor to private estates—managing staff and vendors with absolute poise.</p>
-        </div>
-        <div class="service-card">
-            <div class="service-num">02</div>
-            <h3>Strategic HR Ops</h3>
-            <p>Institutional-grade human capital strategy. Specialized in culture transformation, staff recruitment, and proven overhead reduction.</p>
-        </div>
+  <div class="section-tag">Expertise</div>
+  <h2>Services Tailored to<br><em>Exceptional</em> Households</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <h3>On-Site Chief of Staff</h3>
+      <p>Embedded executive leadership for your household, managing staff and priorities with the precision of a Fortune 500 company.</p>
     </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <h3>Family Office Human Capital</h3>
+      <p>Institutional-grade recruitment and retention strategy for elite household staff, ensuring your team is high-performing and discreet.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <h3>Executive Advisory</h3>
+      <p>On-demand counsel for family principals regarding organizational transitions, governance, and private staff management.</p>
+    </div>
+  </div>
 </section>
 
-<div class="metrics">
-    <div class="metric-item"><h2>33%</h2><p>Turnover Reduced</p></div>
-    <div class="metric-item"><h2>30%</h2><p>HR Expense Reduction</p></div>
-    <div class="metric-item"><h2>33</h2><p>Countries Served</p></div>
-    <div class="metric-item"><h2>MBA</h2><p>Executive Leadership</p></div>
-</div>
-
-<section id="experience" class="experience">
-    <div class="section-label">Professional History</div>
-    <h2>Strategic HR Ops &<br><em>Talent Architecture</em></h2>
-    <div class="timeline">
-        <div class="timeline-item">
-            <h3>Strategic HR Executive</h3>
-            <div class="company">King Nut Companies · Cleveland, OH</div>
-            <ul>
-                <li>Scaled headcount by 37% in 90 days with a robust talent acquisition strategy</li>
-                <li>Reduced annual turnover from 100% to 66.9% — a 33-point improvement</li>
-                <li>Achieved 30% reduction in HR-related expenses through operational optimization</li>
-            </ul>
-        </div>
-        <div class="timeline-item">
-            <h3>Regional Human Resource Director</h3>
-            <div class="company">LANXESS Solutions · Global Specialty Chemical Division</div>
-            <ul>
-                <li>Delivered a 43% increase in productivity through strategic performance training</li>
-                <li>Managed HR across 4 plant sites for a $6.1B global division</li>
-                <li>Implemented global Strategic Workforce Plans to reduce site-level attrition</li>
-            </ul>
-        </div>
-    </div>
+<section id="about" class="linkedin-section">
+  <div class="section-tag" style="justify-content: center;">Professional History</div>
+  <h2>Institutional Mastery at Your Service</h2>
+  <p style="max-width: 700px; margin: 0 auto; color: var(--muted); line-height: 1.8;">Sonia's background spans human resources leadership for global divisions of $6B+ organizations, specializing in talent architecture and operational efficiency.</p>
+  <a href="https://www.linkedin.com/in/sonia-lebron-b3b279299/" target="_blank" class="linkedin-btn">
+    View Full Professional History on LinkedIn
+  </a>
 </section>
 
-<section id="contact" class="contact-section">
-    <div class="section-label" style="justify-content: center;">Begin the Conversation</div>
-    <h2>Ready for <em>World-Class</em><br>Private Service?</h2>
-    <a href="mailto:slebron5809@comcast.net" class="cta-button">Request a Private Consultation</a>
-    <div class="contact-pills">
-        <a href="mailto:slebron5809@comcast.net" class="contact-pill">slebron5809@comcast.net</a>
-        <a href="https://www.linkedin.com/in/sonia-l-0a7a4822b/" target="_blank" class="contact-pill">Sonia LeBron | LinkedIn</a>
-    </div>
+<section class="track">
+  <div class="section-tag">Performance</div>
+  <h2>A Record of Impact</h2>
+  <div class="results-grid">
+    <div class="result-card"><div class="big">33%</div><p>Reduction in annual staff turnover</p></div>
+    <div class="result-card"><div class="big">43%</div><p>Productivity increase in global divisions</p></div>
+    <div class="result-card"><div class="big">30%</div><p>Reduction in HR-related expenses</p></div>
+    <div class="result-card"><div class="big">37%</div><p>Headcount scaled in under 90 days</p></div>
+  </div>
+</section>
+
+<section id="credentials" class="credentials">
+  <div class="section-tag" style="color: var(--gold-light);">Education</div>
+  <h2 style="color: var(--cream);">Credentials & Foundation</h2>
+  <div class="creds-grid">
+    <div class="cred-item"><div class="cred-icon">MBA</div><h4>Master of Business Administration</h4></div>
+    <div class="cred-item"><div class="cred-icon">SPHR</div><h4>Senior Professional in Human Resources</h4></div>
+    <div class="cred-item"><div class="cred-icon">ES</div><h4>Bilingual English & Spanish</h4></div>
+  </div>
+</section>
+
+<section id="contact" class="cta-section" style="text-align: center; padding: 8rem 4rem;">
+  <div class="section-tag" style="justify-content: center;">Confidential Inquiry</div>
+  <h2>Ready to Begin?</h2>
+  <p style="margin-bottom: 3rem;">Based in NYC/NJ and Cleveland. Available for International travel.</p>
+  <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+    <a href="mailto:slebron5809@comcast.net" style="text-decoration: none; color: var(--navy); border: 1px solid var(--border); padding: 1rem 2rem;">slebron5809@comcast.net</a>
+    <a href="tel:6105072049" style="text-decoration: none; color: var(--navy); border: 1px solid var(--border); padding: 1rem 2rem;">(610) 507-2049</a>
+  </div>
 </section>
 
 <footer>
-    <div>Sonia J. LeBron, MBA, SPHR</div>
-    <div>&copy; 2026 · Greater New York City/div>
+  <div class="footer-logo">Sonia J. LeBron, MBA, SPHR</div>
+  <div>NYC & International Travel Ready</div>
+  <div>NJ & OH Residences &nbsp;|&nbsp; Global Availability</div>
 </footer>
 
 </body>
