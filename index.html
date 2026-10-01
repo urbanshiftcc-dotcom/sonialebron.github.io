@@ -175,7 +175,7 @@
   --cream: #F5F0E8;
   --white: #FFFFFF;
 
-  /* derived — opacity variants only, no new hues */
+  /* derived, opacity variants only, no new hues */
   --navy-90:  rgba(26,45,69,.90);
   --navy-80:  rgba(26,45,69,.80);
   --navy-60:  rgba(26,45,69,.60);
@@ -205,7 +205,7 @@ strong { font-weight: 500; color: var(--navy); }
 
 /* ── NAV ──────────────────────────────────────
    White background, navy text, gold CTA
-   Fixed — always visible as you scroll
+   Fixed, always visible as you scroll
 ──────────────────────────────────────────────*/
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 999;
@@ -256,7 +256,7 @@ nav.scrolled { box-shadow: 0 3px 28px var(--navy-12); }
 
 /* ── HERO ─────────────────────────────────────
    Full-width background image
-   White floating card — centered like Diamond's
+   White floating card, centered like Diamond's
 ──────────────────────────────────────────────*/
 .hero {
   min-height: 82svh;
@@ -277,7 +277,7 @@ nav.scrolled { box-shadow: 0 3px 28px var(--navy-12); }
   position: absolute; inset: 0;
   background: rgba(26,45,69,.22); /* very light navy tint so card pops */
 }
-/* Floating white card — same position as Diamond's */
+/* Floating white card, same position as Diamond's */
 .hero-card {
   position: relative; z-index: 10;
   background: var(--white);
@@ -374,7 +374,7 @@ h2 em { font-style: italic; color: var(--gold); }
 .sec-head { text-align:center; max-width:560px; margin:0 auto 4rem; }
 .sec-head p { font-size:.9rem; color:var(--navy-60); margin-top:.85rem; line-height:1.9; }
 
-/* ── INTRO — two column ─────────────────────*/
+/* ── INTRO, two column ─────────────────────*/
 .intro-cols { display:grid; grid-template-columns:1fr 1fr; gap:5rem; margin-top:4rem; }
 .intro-col p { font-size:.93rem; color:var(--navy-60); line-height:1.95; }
 .intro-col p+p { margin-top:1rem; }
@@ -547,7 +547,7 @@ h2 em { font-style: italic; color: var(--gold); }
 .tcard-attr { font-family:'Jost',sans-serif; font-size:.55rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); }
 .tcard-name { font-family:'Cormorant Garamond',serif; font-size:1rem; color:var(--navy); margin-top:.22rem; }
 
-/* ── CONTACT — navy bg ───────────────────────
+/* ── CONTACT, navy bg ───────────────────────
    Clean form, white inputs
 ──────────────────────────────────────────────*/
 .contact-sec {
@@ -566,7 +566,7 @@ h2 em { font-style: italic; color: var(--gold); }
 .cdetail a:hover { color:var(--gold); }
 .cnote { font-size:.68rem; color:rgba(255,255,255,.25); margin-top:1.8rem; line-height:1.75; }
 
-/* right side — form */
+/* right side, form */
 .contact-form-wrap { background:var(--white); padding:3rem 3rem; }
 .contact-form-title {
   font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:400;
@@ -600,7 +600,7 @@ h2 em { font-style: italic; color: var(--gold); }
 .fnote { font-family:'Jost',sans-serif; font-size:.66rem; color:var(--navy-40); margin-top:.5rem; line-height:1.65; }
 .honeypot { position:absolute; left:-9999px; opacity:0; pointer-events:none; }
 
-/* ── FOOTER — darkest navy ──────────────────*/
+/* ── FOOTER, darkest navy ──────────────────*/
 footer {
   background:var(--navy); border-top:1px solid var(--gold-15);
   padding:3.5rem 4rem 2rem; text-align:center;
@@ -618,6 +618,41 @@ footer a:hover { color:rgba(184,145,42,.7); }
 .footer-hr { border:none; border-top:1px solid var(--gold-15); margin:1.8rem 0 1.1rem; }
 .footer-tagline { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.88rem; color:var(--gold-60); letter-spacing:.06em; margin-bottom:.45rem; }
 .footer-copy { font-family:'Jost',sans-serif; font-size:.54rem; letter-spacing:.1em; color:rgba(255,255,255,.2); }
+
+/* ── LEGAL MODAL ────────────────────────────*/
+.legal-modal-backdrop {
+  display:none; position:fixed; inset:0; z-index:2000;
+  background:rgba(26,45,69,.72); backdrop-filter:blur(3px);
+  align-items:center; justify-content:center; padding:1.5rem;
+}
+.legal-modal-backdrop.open { display:flex; }
+.legal-modal {
+  background:var(--white); max-width:780px; width:100%;
+  max-height:88vh; overflow-y:auto; position:relative;
+  box-shadow:0 24px 80px rgba(26,45,69,.28);
+  border-top:3px solid var(--gold);
+  animation:modalIn .3s cubic-bezier(.19,1,.22,1);
+}
+.legal-modal-close {
+  position:sticky; top:0; z-index:10;
+  display:flex; align-items:center; justify-content:space-between;
+  background:var(--white); border-bottom:1px solid var(--navy-12);
+  padding:.75rem 1.8rem;
+}
+.legal-modal-close-label {
+  font-family:'Jost',sans-serif; font-size:.52rem; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--navy-60);
+}
+.legal-modal-close-btn {
+  background:none; border:none; cursor:pointer;
+  font-size:1.3rem; color:var(--navy-40); line-height:1;
+  padding:.2rem .5rem; transition:color .2s;
+}
+.legal-modal-close-btn:hover { color:var(--gold); }
+.legal-modal-body { padding:2.8rem 3rem 3.5rem; }
+.legal-panel { display:none; }
+.legal-panel.active { display:block; }
+@keyframes modalIn { from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none} }
 
 /* ── KEYFRAMES ──────────────────────────────*/
 @keyframes fadeUp  { from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none} }
@@ -656,7 +691,7 @@ footer a:hover { color:rgba(184,145,42,.7); }
 </head>
 <body>
 
-<!-- ══ NAV — white, navy text, always fixed ══ -->
+<!-- ══ NAV, white, navy text, always fixed ══ -->
 <nav id="main-nav" role="navigation" aria-label="Main navigation">
   <a href="/" class="nav-logo">Vorton Advisory LLC</a>
   <div class="nav-links">
@@ -670,14 +705,14 @@ footer a:hover { color:rgba(184,145,42,.7); }
   <a id="nav-cta-link" href="#" class="nav-cta">Schedule a Confidential Consultation</a>
 </nav>
 
-<!-- ══ HERO — luxury background + white floating card ══ -->
+<!-- ══ HERO, luxury background + white floating card ══ -->
 <section class="hero" aria-label="Vorton Advisory LLC">
   <div class="hero-bg"></div>
   <div class="hero-card">
     <div class="hero-eyebrow">Executive HR Advisory</div>
     <h1>Executive HR Advisory for <em>Exceptional</em> Employers</h1>
     <div class="hero-divider"></div>
-    <p class="hero-sub">Strategic HR consulting, workforce governance and compliance for family offices, private households and growing organizations — delivered with precision, discretion and care.</p>
+    <p class="hero-sub">Strategic HR consulting, workforce governance and compliance for family offices, private households and growing organizations, delivered with precision, discretion and care.</p>
     <div class="hero-btns">
       <a id="hero-cta-link" href="#" class="btn-navy">Schedule a Confidential Consultation</a>
       <a href="#services" class="btn-outline-navy">Explore Advisory Services</a>
@@ -685,7 +720,7 @@ footer a:hover { color:rgba(184,145,42,.7); }
   </div>
 </section>
 
-<!-- ══ TICKER — gold bg, navy text ══ -->
+<!-- ══ TICKER, gold bg, navy text ══ -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
     <span>Private Household HR</span><span>Family Office Advisory</span><span>Workforce Governance</span><span>Employee Handbooks</span><span>Fractional HR Leadership</span><span>Compliance &amp; Audits</span><span>Employee Relations</span><span>Organizational Development</span><span>Trusted &amp; Discreet</span><span>USA &amp; International</span>
@@ -703,11 +738,11 @@ footer a:hover { color:rgba(184,145,42,.7); }
     <div class="intro-cols">
       <div class="intro-col">
         <p class="reveal d2">Vorton Advisory LLC is an executive HR consulting firm providing discreet, strategic guidance to family offices, private households, startups, and growing organizations across the USA and internationally.</p>
-        <p class="reveal d3">We specialize in workforce governance, employee handbook development, compliance, employee relations, and organizational development — built around the unique needs of each client we serve.</p>
+        <p class="reveal d3">We specialize in workforce governance, employee handbook development, compliance, employee relations, and organizational development, built around the unique needs of each client we serve.</p>
       </div>
       <div class="intro-col">
         <p class="reveal d2">Founded by Sonia Lebron, SPHR, with more than 20 years of HR leadership, Vorton Advisory brings Fortune 500 rigor and private household expertise to every engagement.</p>
-        <p class="reveal d3">Whether you are building HR infrastructure for the first time, navigating a complex employee situation, or seeking retained advisory support — we deliver practical solutions with complete confidentiality.</p>
+        <p class="reveal d3">Whether you are building HR infrastructure for the first time, navigating a complex employee situation, or seeking retained advisory support, we deliver practical solutions with complete confidentiality.</p>
       </div>
     </div>
   </div>
@@ -732,13 +767,13 @@ footer a:hover { color:rgba(184,145,42,.7); }
       <div class="serve-card reveal d1">
         <div class="serve-card-num">02</div>
         <h3>Private Households &amp; Estates</h3>
-        <p>Professional HR guidance for private employers managing household staff, estate personnel, personal assistants, and private teams — with complete expertise and discretion.</p>
+        <p>Professional HR guidance for private employers managing household staff, estate personnel, personal assistants, and private teams, with complete expertise and discretion.</p>
       </div>
 
       <div class="serve-card reveal d2">
         <div class="serve-card-num">03</div>
         <h3>Growing Organizations</h3>
-        <p>Build the HR infrastructure your startup or growing organization needs — compliant, scalable people practices and policies designed for sustainable, long-term success.</p>
+        <p>Build the HR infrastructure your startup or growing organization needs, compliant, scalable people practices and policies designed for sustainable, long-term success.</p>
       </div>
 
     </div>
@@ -764,13 +799,13 @@ footer a:hover { color:rgba(184,145,42,.7); }
 <section id="about">
   <div class="about-wrap">
     <div class="about-photo">
-      <img src="sonia-headshot.jpg" width="900" height="1117" alt="Sonia Lebron, SPHR — Founder and Principal Consultant of Vorton Advisory LLC" loading="lazy" />
-      <div class="about-photo-cap">Sonia J. LeBron — Founder &amp; Principal, Vorton Advisory LLC</div>
+      <img src="sonia-headshot.jpg" width="900" height="1117" alt="Sonia Lebron, SPHR, Founder and Principal Consultant of Vorton Advisory LLC" loading="lazy" />
+      <div class="about-photo-cap">Sonia J. LeBron, Founder &amp; Principal, Vorton Advisory LLC</div>
     </div>
     <div class="about-text">
       <div class="section-tag reveal">Meet Sonia J. LeBron</div>
       <h2 class="reveal d1">Founder &amp; Principal,<br><em>Vorton Advisory LLC</em></h2>
-      <p class="reveal d2">At the core of every high-performing enterprise—whether a scaling corporation or an elite private estate—is a single, critical variable: its people. As a strategic advisor with over two decades of human capital experience, I partner with forward-thinking organizations and high-net-worth private offices to transform complex workforce challenges into distinct operational advantages. My work focuses on design, execution, and culture, building the foundational architectures that allow both enterprise and teams to thrive.</p>
+      <p class="reveal d2">At the core of every high-performing enterprise-whether a scaling corporation or an elite private estate-is a single, critical variable: its people. As a strategic advisor with over two decades of human capital experience, I partner with forward-thinking organizations and high-net-worth private offices to transform complex workforce challenges into distinct operational advantages. My work focuses on design, execution, and culture, building the foundational architectures that allow both enterprise and teams to thrive.</p>
       <p class="reveal d3">My career has been forged at the intersection of high-stakes execution and long-term vision. Spanning global HR operations, predictive workforce analytics, compliance, and deep organizational development, my expertise has guided startup environments, growth-stage companies, and corporate landscapes alike. I understand how to align operational grit with executive strategy, ensuring that infrastructure seamlessly supports your largest ambitions.</p>
       <p class="reveal d4">What sets Vorton Advisory apart is an elite, dual-lens perspective. By bridging the sophisticated, data-driven standards of corporate HR leadership with the highly nuanced, deeply discreet realities of private household management, I bring a rare caliber of insight to the table. This blend of enterprise rigor and bespoke experience delivers absolute clarity, alignment, and a definitive competitive edge where excellence is the minimum standard.</p>
       <div class="cred-row reveal d5">
@@ -793,13 +828,13 @@ footer a:hover { color:rgba(184,145,42,.7); }
     <div class="sec-head reveal">
       <div class="section-tag" style="justify-content:center;">What We Offer</div>
       <h2>HR Solutions for <em>Exceptional</em> Employers</h2>
-      <p>Strategic, practical, and entirely personalized — every engagement is built around your specific goals, workforce, and organizational culture.</p>
+      <p>Strategic, practical, and entirely personalized, every engagement is built around your specific goals, workforce, and organizational culture.</p>
     </div>
     <div class="svc-grid">
       <div class="svc-card reveal">
         <div class="svc-n">01</div>
         <h3>Family Office &amp; Private Household Advisory</h3>
-        <p>Professional HR guidance for principals managing household staff, estate personnel, personal assistants, and private teams — delivered with complete discretion.</p>
+        <p>Professional HR guidance for principals managing household staff, estate personnel, personal assistants, and private teams, delivered with complete discretion.</p>
         <div class="svc-tags"><span class="stag">Household</span><span class="stag">Estate</span><span class="stag">Advisory</span></div>
       </div>
       <div class="svc-card reveal d1">
@@ -829,7 +864,7 @@ footer a:hover { color:rgba(184,145,42,.7); }
       <div class="svc-card reveal d5">
         <div class="svc-n">06</div>
         <h3>Fractional HR Leadership</h3>
-        <p>Executive-level HR expertise on a fractional basis — all the strategic depth of a seasoned HR executive without the full-time cost.</p>
+        <p>Executive-level HR expertise on a fractional basis, all the strategic depth of a seasoned HR executive without the full-time cost.</p>
         <div class="svc-tags"><span class="stag">Fractional</span><span class="stag">Executive</span><span class="stag">On-Demand</span></div>
       </div>
     </div>
@@ -842,7 +877,7 @@ footer a:hover { color:rgba(184,145,42,.7); }
     <div class="sec-head reveal">
       <div class="section-tag" style="justify-content:center;">How We Work Together</div>
       <h2>A Simple, <em>Confidential</em> Process</h2>
-      <p>Every engagement begins with understanding your goals and ends with measurable, lasting results — delivered with complete professionalism.</p>
+      <p>Every engagement begins with understanding your goals and ends with measurable, lasting results, delivered with complete professionalism.</p>
     </div>
     <div class="psteps">
       <div class="pstep reveal">
@@ -858,7 +893,7 @@ footer a:hover { color:rgba(184,145,42,.7); }
       <div class="pstep reveal d2">
         <div class="pstep-n">03</div>
         <h3>Implement</h3>
-        <p>Develop and execute customized solutions — from handbooks and policies to engagement programs and frameworks.</p>
+        <p>Develop and execute customized solutions, from handbooks and policies to engagement programs and frameworks.</p>
       </div>
       <div class="pstep reveal d3">
         <div class="pstep-n">04</div>
@@ -875,12 +910,12 @@ footer a:hover { color:rgba(184,145,42,.7); }
     <div class="sec-head reveal">
       <div class="section-tag" style="justify-content:center;">The Vorton Difference</div>
       <h2>Why Organizations Choose <em>Vorton Advisory</em></h2>
-      <p>We are not a traditional HR firm. We bring executive-level thinking, genuine discretion, and practical expertise to every engagement — treating your organization as our own.</p>
+      <p>We are not a traditional HR firm. We bring executive-level thinking, genuine discretion, and practical expertise to every engagement, treating your organization as our own.</p>
     </div>
     <div class="why-list" style="max-width:820px;margin:0 auto;">
       <div class="why-item reveal d1"><span class="why-dot">✦</span><div class="why-text"><strong>20+ Years of HR Leadership</strong><p>Deep expertise across Fortune 500 corporations, startups, family offices, and private households.</p></div></div>
       <div class="why-item reveal d2"><span class="why-dot">✦</span><div class="why-text"><strong>Family Office &amp; Household Expertise</strong><p>A rare combination of private household operations and corporate HR strategy most consultants simply do not have.</p></div></div>
-      <div class="why-item reveal d3"><span class="why-dot">✦</span><div class="why-text"><strong>Strategic &amp; Practical Solutions</strong><p>Actionable outcomes — every recommendation designed for real-world implementation and lasting results.</p></div></div>
+      <div class="why-item reveal d3"><span class="why-dot">✦</span><div class="why-text"><strong>Strategic &amp; Practical Solutions</strong><p>Actionable outcomes, every recommendation designed for real-world implementation and lasting results.</p></div></div>
       <div class="why-item reveal d4"><span class="why-dot">✦</span><div class="why-text"><strong>Personalized, Discreet Service</strong><p>Your goals and confidentiality are our top priorities. We work as your trusted advisor, not a vendor.</p></div></div>
     </div>
   </div>
@@ -899,10 +934,10 @@ footer a:hover { color:rgba(184,145,42,.7); }
         <div class="res-num">01</div>
         <div class="res-type">Digital Bundle · Immediate Download</div>
         <h3>Private Household<br><em>Employee Handbook</em></h3>
-        <p>The attorney-reviewed foundation every private household employer needs. Compliant, comprehensive, and ready to use — delivered as a complete bundle.</p>
+        <p>The attorney-reviewed foundation every private household employer needs. Compliant, comprehensive, and ready to use, delivered as a complete bundle.</p>
         <div class="res-includes">
-          <span>Word Document (.docx) — fully editable</span>
-          <span>PDF — ready to distribute</span>
+          <span>Word Document (.docx), fully editable</span>
+          <span>PDF, ready to distribute</span>
         </div>
         <div class="res-foot"><span class="res-price">$199</span><span class="res-link">View Details →</span></div>
       </a>
@@ -910,14 +945,14 @@ footer a:hover { color:rgba(184,145,42,.7); }
         <div class="res-num">02</div>
         <div class="res-type">On-Site Engagement · By Application</div>
         <h3>Private Household<br><em>HR Audit</em></h3>
-        <p>A comprehensive evaluation of your household or organization — every gap in staff management, systems, and compliance identified with actionable recommendations.</p>
+        <p>A comprehensive evaluation of your household or organization, every gap in staff management, systems, and compliance identified with actionable recommendations.</p>
         <div class="res-foot"><span class="res-price" style="font-size:1.1rem;letter-spacing:.04em;">By Inquiry</span><span class="res-link">Request an HR Audit →</span></div>
       </a>
       <a href="store.html#consulting" class="res-card reveal d2">
         <div class="res-num">03</div>
         <div class="res-type">Retained Engagement · By Application Only</div>
         <h3>Private Advisor<br><em>Engagement</em></h3>
-        <p>Ongoing strategic partnership — HR strategy, operational guidance, compliance oversight, and direct advisory access on a retained, confidential basis.</p>
+        <p>Ongoing strategic partnership, HR strategy, operational guidance, compliance oversight, and direct advisory access on a retained, confidential basis.</p>
         <div class="res-foot"><span class="res-price" style="font-size:1.1rem;letter-spacing:.04em;">By Inquiry</span><span class="res-link">Explore Advisory Services →</span></div>
       </a>
     </div>
@@ -968,7 +1003,7 @@ footer a:hover { color:rgba(184,145,42,.7); }
           <div class="cdetail"><div class="cdot"></div><a href="https://www.linkedin.com/in/sonia-l-0a7a4822b/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
           <div class="cdetail"><div class="cdot"></div><span>USA &amp; International</span></div>
         </div>
-        <p class="cnote reveal d4">All inquiries handled personally and in strict confidence.<br>Engagements are selective — acceptance based on fit and capacity.</p>
+        <p class="cnote reveal d4">All inquiries handled personally and in strict confidence.<br>Engagements are selective, acceptance based on fit and capacity.</p>
       </div>
       <div class="reveal d2">
         <div class="contact-form-wrap">
@@ -990,7 +1025,7 @@ footer a:hover { color:rgba(184,145,42,.7); }
             <div class="fg">
               <label for="f-service">Area of Interest</label>
               <select id="f-service" name="service">
-                <option value="">— Select a Service —</option>
+                <option value="">- Select a Service -</option>
                 <option>Family Office &amp; Household Advisory</option>
                 <option>Employee Handbook Development</option>
                 <option>Compliance &amp; HR Audit</option>
@@ -1006,7 +1041,7 @@ footer a:hover { color:rgba(184,145,42,.7); }
               <textarea id="f-msg" name="message" placeholder="Tell me a little about your needs…"></textarea>
             </div>
             <button type="submit" class="btn-submit">Send Confidential Inquiry →</button>
-            <p class="fnote">Every response is personal — never automated. Typically within one business day.</p>
+            <p class="fnote">Every response is personal, never automated. Typically within one business day.</p>
           </form>
         </div>
       </div>
@@ -1014,131 +1049,115 @@ footer a:hover { color:rgba(184,145,42,.7); }
   </div>
 </section>
 
-<!-- ══ LEGAL PAGES — kept in this same file so only one upload is needed ══ -->
-<section class="sec-white" id="privacy-policy">
-  <div class="container" style="max-width:820px;">
-    <a href="#" style="font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--navy);display:inline-block;margin-bottom:2rem;">← Back to Top</a>
-    <div class="section-tag">Vorton Advisory LLC</div>
-    <h2 style="margin-bottom:.4rem;">Privacy Policy</h2>
-    <p style="font-size:.72rem;color:var(--navy);opacity:.5;margin-bottom:2rem;">Last updated: August 2, 2026</p>
-    <div style="background:var(--cream);border-left:2px solid var(--gold);padding:1.2rem 1.5rem;margin-bottom:2rem;font-size:.82rem;">This policy is a general-purpose template, not legal advice, and has not been reviewed by an attorney. Because Vorton Advisory works across multiple U.S. states and internationally, have this reviewed by counsel before relying on it, so it reflects the data you actually collect and any state or country-specific obligations (e.g., CCPA/CPRA, GDPR, VCDPA, CPA).</div>
-    <p style="font-size:.92rem;margin-bottom:1.2rem;">Vorton Advisory LLC ("Vorton Advisory," "we," "us," or "our") respects your privacy. This Privacy Policy explains what information we collect through vortonadvisory.com (the "Site"), how we use it, and the choices you have.</p>
+<!-- ══ LEGAL MODAL ══ -->
+<div class="legal-modal-backdrop" id="legal-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title">
+  <div class="legal-modal" id="legal-modal">
+    <div class="legal-modal-close">
+      <span class="legal-modal-close-label" id="legal-modal-title">Vorton Advisory LLC</span>
+      <button class="legal-modal-close-btn" id="legal-modal-close-btn" aria-label="Close">&times;</button>
+    </div>
+    <div class="legal-modal-body">
 
-    <h3 style="margin:1.8rem 0 .6rem;">1. Information We Collect</h3>
-    <ul style="margin:0 0 1rem 1.3rem;font-size:.92rem;line-height:1.9;">
-      <li><strong>Information you provide directly</strong> — name, email, organization, and message content when you submit our contact form, book a consultation, or purchase a resource.</li>
-      <li><strong>Payment information</strong> — processed by our third-party payment provider (e.g., Payhip) for digital purchases. We do not store full card details on our own servers.</li>
-      <li><strong>Automatically collected information</strong> — IP address, browser type, device information, and pages visited via standard server logs and, if enabled, analytics tools.</li>
-      <li><strong>Cookies and similar technologies</strong> — used for basic site functionality and, where enabled, to understand site usage.</li>
-    </ul>
+      <!-- Privacy Policy -->
+      <div class="legal-panel" id="panel-privacy-policy">
+        <div class="section-tag">Vorton Advisory LLC</div>
+        <h2 style="margin-bottom:.4rem;">Privacy Policy</h2>
+        <p style="font-size:.72rem;color:var(--navy);opacity:.5;margin-bottom:2rem;">Last updated: August 2, 2026</p>
+        <div style="background:var(--cream);border-left:2px solid var(--gold);padding:1.2rem 1.5rem;margin-bottom:2rem;font-size:.82rem;">This policy is a general-purpose template, not legal advice, and has not been reviewed by an attorney. Because Vorton Advisory works across multiple U.S. states and internationally, have this reviewed by counsel before relying on it, so it reflects the data you actually collect and any state or country-specific obligations (e.g., CCPA/CPRA, GDPR, VCDPA, CPA).</div>
+        <p style="font-size:.92rem;margin-bottom:1.2rem;">Vorton Advisory LLC ("Vorton Advisory," "we," "us," or "our") respects your privacy. This Privacy Policy explains what information we collect through vortonadvisory.com (the "Site"), how we use it, and the choices you have.</p>
+        <h3 style="margin:1.8rem 0 .6rem;">1. Information We Collect</h3>
+        <ul style="margin:0 0 1rem 1.3rem;font-size:.92rem;line-height:1.9;">
+          <li><strong>Information you provide directly</strong>, name, email, organization, and message content when you submit our contact form, book a consultation, or purchase a resource.</li>
+          <li><strong>Payment information</strong>, processed by our third-party payment provider (e.g., Payhip) for digital purchases. We do not store full card details on our own servers.</li>
+          <li><strong>Automatically collected information</strong>, IP address, browser type, device information, and pages visited via standard server logs and, if enabled, analytics tools.</li>
+          <li><strong>Cookies and similar technologies</strong>, used for basic site functionality and, where enabled, to understand site usage.</li>
+        </ul>
+        <h3 style="margin:1.8rem 0 .6rem;">2. How We Use Your Information</h3>
+        <ul style="margin:0 0 1rem 1.3rem;font-size:.92rem;line-height:1.9;">
+          <li>To respond to inquiries and schedule consultations</li>
+          <li>To deliver purchased digital resources and process transactions</li>
+          <li>To communicate about our services</li>
+          <li>To maintain, secure, and improve the Site</li>
+          <li>To comply with applicable legal, tax, and regulatory obligations</li>
+        </ul>
+        <p style="font-size:.92rem;margin-bottom:1.2rem;">We do not sell your personal information.</p>
+        <h3 style="margin:1.8rem 0 .6rem;">3. How We Share Information</h3>
+        <p style="font-size:.92rem;margin-bottom:1.2rem;">We share information only with service providers who help us operate the Site and deliver services (email, scheduling, and payment processing providers), or when required by law. Given the confidential nature of our HR advisory work, we do not share client information with any third party for marketing purposes.</p>
+        <h3 style="margin:1.8rem 0 .6rem;">4. Data Retention</h3>
+        <p style="font-size:.92rem;margin-bottom:1.2rem;">We retain personal information only as long as necessary to fulfill the purposes above, satisfy legal or contractual obligations, and resolve disputes.</p>
+        <h3 style="margin:1.8rem 0 .6rem;">5. Your Privacy Rights</h3>
+        <p style="font-size:.92rem;margin-bottom:.6rem;">Depending on where you live, you may have rights to access, correct, delete, or restrict use of your personal information, and to opt out of certain processing, including under:</p>
+        <ul style="margin:0 0 1rem 1.3rem;font-size:.92rem;line-height:1.9;">
+          <li><strong>California</strong>, CCPA, as amended by the CPRA</li>
+          <li><strong>Virginia</strong>, VCDPA</li>
+          <li><strong>Colorado</strong>, CPA</li>
+          <li><strong>EU / UK</strong>, GDPR / UK GDPR, for visitors located there</li>
+          <li>Other applicable U.S. state privacy laws</li>
+        </ul>
+        <p style="font-size:.92rem;margin-bottom:1.2rem;">To exercise any of these rights, contact us at <a href="mailto:slebron@vortonadvisory.com" style="color:var(--gold);">slebron@vortonadvisory.com</a>. We will respond within the timeframe required by applicable law.</p>
+        <h3 style="margin:1.8rem 0 .6rem;">6. Children's Privacy</h3>
+        <p style="font-size:.92rem;margin-bottom:1.2rem;">The Site is not directed to children under 13, and we do not knowingly collect personal information from children.</p>
+        <h3 style="margin:1.8rem 0 .6rem;">7. Security</h3>
+        <p style="font-size:.92rem;margin-bottom:1.2rem;">We use reasonable administrative and technical safeguards to protect information submitted through the Site. No method of transmission or storage is completely secure.</p>
+        <h3 style="margin:1.8rem 0 .6rem;">8. Changes to This Policy</h3>
+        <p style="font-size:.92rem;margin-bottom:1.2rem;">We may update this Privacy Policy from time to time. The "Last updated" date above reflects the most recent revision.</p>
+        <h3 style="margin:1.8rem 0 .6rem;">9. Contact Us</h3>
+        <p style="font-size:.92rem;">Questions about this Privacy Policy can be sent to <a href="mailto:slebron@vortonadvisory.com" style="color:var(--gold);">slebron@vortonadvisory.com</a>.</p>
+      </div>
 
-    <h3 style="margin:1.8rem 0 .6rem;">2. How We Use Your Information</h3>
-    <ul style="margin:0 0 1rem 1.3rem;font-size:.92rem;line-height:1.9;">
-      <li>To respond to inquiries and schedule consultations</li>
-      <li>To deliver purchased digital resources and process transactions</li>
-      <li>To communicate about our services</li>
-      <li>To maintain, secure, and improve the Site</li>
-      <li>To comply with applicable legal, tax, and regulatory obligations</li>
-    </ul>
-    <p style="font-size:.92rem;margin-bottom:1.2rem;">We do not sell your personal information.</p>
+      <!-- Terms of Use -->
+      <div class="legal-panel" id="panel-terms-of-use">
+        <div class="section-tag">Vorton Advisory LLC</div>
+        <h2 style="margin-bottom:.4rem;">Terms of Use</h2>
+        <p style="font-size:.72rem;color:var(--navy);opacity:.5;margin-bottom:2rem;">Last updated: August 2, 2026</p>
+        <div style="background:var(--cream);border-left:2px solid var(--gold);padding:1.2rem 1.5rem;margin-bottom:2rem;font-size:.82rem;">This is a general-purpose template, not legal advice. Have it reviewed by an attorney before relying on it, to make sure it fits your actual services, engagement agreements, and state of formation.</div>
+        <h3 style="margin:1.8rem 0 .6rem;">1. Acceptance of Terms</h3>
+        <p style="font-size:.92rem;margin-bottom:1.2rem;">By accessing or using vortonadvisory.com (the "Site"), you agree to these Terms of Use. If you do not agree, please do not use the Site.</p>
+        <h3 style="margin:1.8rem 0 .6rem;">2. Informational Purpose Only</h3>
+        <p style="font-size:.92rem;margin-bottom:1.2rem;">Content on the Site, including service descriptions, downloadable resources, and blog or informational content, is provided for general informational purposes only. It does not constitute legal, tax, or employment law advice, and does not create a consulting or advisory relationship. An advisory relationship with Vorton Advisory LLC begins only upon execution of a signed engagement agreement.</p>
+        <h3 style="margin:1.8rem 0 .6rem;">3. Digital Products</h3>
+        <p style="font-size:.92rem;margin-bottom:1.2rem;">Digital resources (such as employee handbook templates) are licensed for use by the purchasing individual or organization only and may not be resold, redistributed, or shared. Because these are digital downloads, all sales are final except where required otherwise by law.</p>
+        <h3 style="margin:1.8rem 0 .6rem;">4. Intellectual Property</h3>
+        <p style="font-size:.92rem;margin-bottom:1.2rem;">All content on the Site, including text, graphics, logos, and downloadable materials, is the property of Vorton Advisory LLC and is protected by copyright and other intellectual property laws. No content may be copied, reproduced, or distributed without written permission.</p>
+        <h3 style="margin:1.8rem 0 .6rem;">5. No Warranty</h3>
+        <p style="font-size:.92rem;margin-bottom:1.2rem;">The Site and its content are provided "as is" without warranties of any kind, express or implied. Vorton Advisory LLC does not guarantee that any template, resource, or informational content will satisfy every legal or regulatory requirement applicable to your organization.</p>
+        <h3 style="margin:1.8rem 0 .6rem;">6. Limitation of Liability</h3>
+        <p style="font-size:.92rem;margin-bottom:1.2rem;">To the fullest extent permitted by law, Vorton Advisory LLC shall not be liable for any indirect, incidental, or consequential damages arising from your use of the Site or reliance on its content.</p>
+        <h3 style="margin:1.8rem 0 .6rem;">7. Governing Law</h3>
+        <p style="font-size:.92rem;margin-bottom:1.2rem;">These Terms are governed by the laws of the State of Ohio, without regard to conflict-of-law principles.</p>
+        <h3 style="margin:1.8rem 0 .6rem;">8. Changes to These Terms</h3>
+        <p style="font-size:.92rem;margin-bottom:1.2rem;">We may revise these Terms from time to time. Continued use of the Site after changes constitutes acceptance of the revised Terms.</p>
+        <h3 style="margin:1.8rem 0 .6rem;">9. Contact</h3>
+        <p style="font-size:.92rem;">Questions about these Terms can be sent to <a href="mailto:slebron@vortonadvisory.com" style="color:var(--gold);">slebron@vortonadvisory.com</a>.</p>
+      </div>
 
-    <h3 style="margin:1.8rem 0 .6rem;">3. How We Share Information</h3>
-    <p style="font-size:.92rem;margin-bottom:1.2rem;">We share information only with service providers who help us operate the Site and deliver services (email, scheduling, and payment processing providers), or when required by law. Given the confidential nature of our HR advisory work, we do not share client information with any third party for marketing purposes.</p>
+      <!-- Accessibility Statement -->
+      <div class="legal-panel" id="panel-accessibility-statement">
+        <div class="section-tag">Vorton Advisory LLC</div>
+        <h2 style="margin-bottom:.4rem;">Accessibility Statement</h2>
+        <p style="font-size:.72rem;color:var(--navy);opacity:.5;margin-bottom:2rem;">Last updated: August 2, 2026</p>
+        <div style="background:var(--cream);border-left:2px solid var(--gold);padding:1.2rem 1.5rem;margin-bottom:2rem;font-size:.82rem;">This statement describes a good-faith commitment to accessibility, not a guarantee of legal compliance. Title III of the ADA has no official technical standard for websites, but WCAG 2.1 Level AA is the benchmark most courts and the DOJ point to. Given the volume of ADA website-accessibility litigation, we recommend a professional accessibility audit rather than relying on this statement alone.</div>
+        <h3 style="margin:1.8rem 0 .6rem;">Our Commitment</h3>
+        <p style="font-size:.92rem;margin-bottom:1.2rem;">Vorton Advisory LLC is committed to ensuring vortonadvisory.com is accessible to people of all abilities. We aim to meet or exceed the Web Content Accessibility Guidelines (WCAG) 2.1, Level AA, and to comply with applicable requirements of the Americans with Disabilities Act (ADA).</p>
+        <h3 style="margin:1.8rem 0 .6rem;">Measures We Take</h3>
+        <ul style="margin:0 0 1rem 1.3rem;font-size:.92rem;line-height:1.9;">
+          <li>Descriptive alternative text for meaningful images</li>
+          <li>Sufficient color contrast between text and background</li>
+          <li>Keyboard-navigable menus, links, and forms</li>
+          <li>Semantic HTML structure (headings, landmarks, labeled form fields)</li>
+          <li>Legible, resizable text that does not rely on color alone to convey meaning</li>
+          <li>Ongoing review as the Site is updated</li>
+        </ul>
+        <h3 style="margin:1.8rem 0 .6rem;">Known Limitations</h3>
+        <p style="font-size:.92rem;margin-bottom:1.2rem;">Despite our efforts, some parts of the Site may not yet be fully accessible. We are actively working to identify and correct these issues. Third-party content or tools embedded on the Site (such as payment or scheduling widgets) may have their own accessibility limitations outside our direct control.</p>
+        <h3 style="margin:1.8rem 0 .6rem;">Feedback &amp; Assistance</h3>
+        <p style="font-size:.92rem;margin-bottom:.6rem;">If you experience difficulty accessing any part of this Site, or need information in an alternative format, contact us, we will work with you to provide the content or service you need:</p>
+        <p style="font-size:.92rem;">Email: <a href="mailto:slebron@vortonadvisory.com" style="color:var(--gold);">slebron@vortonadvisory.com</a></p>
+      </div>
 
-    <h3 style="margin:1.8rem 0 .6rem;">4. Data Retention</h3>
-    <p style="font-size:.92rem;margin-bottom:1.2rem;">We retain personal information only as long as necessary to fulfill the purposes above, satisfy legal or contractual obligations, and resolve disputes.</p>
-
-    <h3 style="margin:1.8rem 0 .6rem;">5. Your Privacy Rights</h3>
-    <p style="font-size:.92rem;margin-bottom:.6rem;">Depending on where you live, you may have rights to access, correct, delete, or restrict use of your personal information, and to opt out of certain processing, including under:</p>
-    <ul style="margin:0 0 1rem 1.3rem;font-size:.92rem;line-height:1.9;">
-      <li><strong>California</strong> — CCPA, as amended by the CPRA</li>
-      <li><strong>Virginia</strong> — VCDPA</li>
-      <li><strong>Colorado</strong> — CPA</li>
-      <li><strong>EU / UK</strong> — GDPR / UK GDPR, for visitors located there</li>
-      <li>Other applicable U.S. state privacy laws</li>
-    </ul>
-    <p style="font-size:.92rem;margin-bottom:1.2rem;">To exercise any of these rights, contact us at <a href="mailto:slebron@vortonadvisory.com" style="color:var(--gold);">slebron@vortonadvisory.com</a>. We will respond within the timeframe required by applicable law.</p>
-
-    <h3 style="margin:1.8rem 0 .6rem;">6. Children's Privacy</h3>
-    <p style="font-size:.92rem;margin-bottom:1.2rem;">The Site is not directed to children under 13, and we do not knowingly collect personal information from children.</p>
-
-    <h3 style="margin:1.8rem 0 .6rem;">7. Security</h3>
-    <p style="font-size:.92rem;margin-bottom:1.2rem;">We use reasonable administrative and technical safeguards to protect information submitted through the Site. No method of transmission or storage is completely secure.</p>
-
-    <h3 style="margin:1.8rem 0 .6rem;">8. Changes to This Policy</h3>
-    <p style="font-size:.92rem;margin-bottom:1.2rem;">We may update this Privacy Policy from time to time. The "Last updated" date above reflects the most recent revision.</p>
-
-    <h3 style="margin:1.8rem 0 .6rem;">9. Contact Us</h3>
-    <p style="font-size:.92rem;">Questions about this Privacy Policy can be sent to <a href="mailto:slebron@vortonadvisory.com" style="color:var(--gold);">slebron@vortonadvisory.com</a>.</p>
+    </div>
   </div>
-</section>
-
-<section class="sec-cream" id="terms-of-use">
-  <div class="container" style="max-width:820px;">
-    <a href="#" style="font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--navy);display:inline-block;margin-bottom:2rem;">← Back to Top</a>
-    <div class="section-tag">Vorton Advisory LLC</div>
-    <h2 style="margin-bottom:.4rem;">Terms of Use</h2>
-    <p style="font-size:.72rem;color:var(--navy);opacity:.5;margin-bottom:2rem;">Last updated: August 2, 2026</p>
-    <div style="background:var(--white);border-left:2px solid var(--gold);padding:1.2rem 1.5rem;margin-bottom:2rem;font-size:.82rem;">This is a general-purpose template, not legal advice. Have it reviewed by an attorney before relying on it, to make sure it fits your actual services, engagement agreements, and state of formation.</div>
-
-    <h3 style="margin:1.8rem 0 .6rem;">1. Acceptance of Terms</h3>
-    <p style="font-size:.92rem;margin-bottom:1.2rem;">By accessing or using vortonadvisory.com (the "Site"), you agree to these Terms of Use. If you do not agree, please do not use the Site.</p>
-
-    <h3 style="margin:1.8rem 0 .6rem;">2. Informational Purpose Only</h3>
-    <p style="font-size:.92rem;margin-bottom:1.2rem;">Content on the Site — including service descriptions, downloadable resources, and blog or informational content — is provided for general informational purposes only. It does not constitute legal, tax, or employment law advice, and does not create a consulting or advisory relationship. An advisory relationship with Vorton Advisory LLC begins only upon execution of a signed engagement agreement.</p>
-
-    <h3 style="margin:1.8rem 0 .6rem;">3. Digital Products</h3>
-    <p style="font-size:.92rem;margin-bottom:1.2rem;">Digital resources (such as employee handbook templates) are licensed for use by the purchasing individual or organization only and may not be resold, redistributed, or shared. Because these are digital downloads, all sales are final except where required otherwise by law.</p>
-
-    <h3 style="margin:1.8rem 0 .6rem;">4. Intellectual Property</h3>
-    <p style="font-size:.92rem;margin-bottom:1.2rem;">All content on the Site — including text, graphics, logos, and downloadable materials — is the property of Vorton Advisory LLC and is protected by copyright and other intellectual property laws. No content may be copied, reproduced, or distributed without written permission.</p>
-
-    <h3 style="margin:1.8rem 0 .6rem;">5. No Warranty</h3>
-    <p style="font-size:.92rem;margin-bottom:1.2rem;">The Site and its content are provided "as is" without warranties of any kind, express or implied. Vorton Advisory LLC does not guarantee that any template, resource, or informational content will satisfy every legal or regulatory requirement applicable to your organization.</p>
-
-    <h3 style="margin:1.8rem 0 .6rem;">6. Limitation of Liability</h3>
-    <p style="font-size:.92rem;margin-bottom:1.2rem;">To the fullest extent permitted by law, Vorton Advisory LLC shall not be liable for any indirect, incidental, or consequential damages arising from your use of the Site or reliance on its content.</p>
-
-    <h3 style="margin:1.8rem 0 .6rem;">7. Governing Law</h3>
-    <p style="font-size:.92rem;margin-bottom:1.2rem;">These Terms are governed by the laws of the State of Ohio, without regard to conflict-of-law principles.</p>
-
-    <h3 style="margin:1.8rem 0 .6rem;">8. Changes to These Terms</h3>
-    <p style="font-size:.92rem;margin-bottom:1.2rem;">We may revise these Terms from time to time. Continued use of the Site after changes constitutes acceptance of the revised Terms.</p>
-
-    <h3 style="margin:1.8rem 0 .6rem;">9. Contact</h3>
-    <p style="font-size:.92rem;">Questions about these Terms can be sent to <a href="mailto:slebron@vortonadvisory.com" style="color:var(--gold);">slebron@vortonadvisory.com</a>.</p>
-  </div>
-</section>
-
-<section class="sec-white" id="accessibility-statement">
-  <div class="container" style="max-width:820px;">
-    <a href="#" style="font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--navy);display:inline-block;margin-bottom:2rem;">← Back to Top</a>
-    <div class="section-tag">Vorton Advisory LLC</div>
-    <h2 style="margin-bottom:.4rem;">Accessibility Statement</h2>
-    <p style="font-size:.72rem;color:var(--navy);opacity:.5;margin-bottom:2rem;">Last updated: August 2, 2026</p>
-    <div style="background:var(--cream);border-left:2px solid var(--gold);padding:1.2rem 1.5rem;margin-bottom:2rem;font-size:.82rem;">This statement describes a good-faith commitment to accessibility, not a guarantee of legal compliance. Title III of the ADA has no official technical standard for websites, but WCAG 2.1 Level AA is the benchmark most courts and the DOJ point to. Given the volume of ADA website-accessibility litigation, we recommend a professional accessibility audit rather than relying on this statement alone.</div>
-
-    <h3 style="margin:1.8rem 0 .6rem;">Our Commitment</h3>
-    <p style="font-size:.92rem;margin-bottom:1.2rem;">Vorton Advisory LLC is committed to ensuring vortonadvisory.com is accessible to people of all abilities. We aim to meet or exceed the Web Content Accessibility Guidelines (WCAG) 2.1, Level AA, and to comply with applicable requirements of the Americans with Disabilities Act (ADA).</p>
-
-    <h3 style="margin:1.8rem 0 .6rem;">Measures We Take</h3>
-    <ul style="margin:0 0 1rem 1.3rem;font-size:.92rem;line-height:1.9;">
-      <li>Descriptive alternative text for meaningful images</li>
-      <li>Sufficient color contrast between text and background</li>
-      <li>Keyboard-navigable menus, links, and forms</li>
-      <li>Semantic HTML structure (headings, landmarks, labeled form fields)</li>
-      <li>Legible, resizable text that does not rely on color alone to convey meaning</li>
-      <li>Ongoing review as the Site is updated</li>
-    </ul>
-
-    <h3 style="margin:1.8rem 0 .6rem;">Known Limitations</h3>
-    <p style="font-size:.92rem;margin-bottom:1.2rem;">Despite our efforts, some parts of the Site may not yet be fully accessible. We are actively working to identify and correct these issues. Third-party content or tools embedded on the Site (such as payment or scheduling widgets) may have their own accessibility limitations outside our direct control.</p>
-
-    <h3 style="margin:1.8rem 0 .6rem;">Feedback &amp; Assistance</h3>
-    <p style="font-size:.92rem;margin-bottom:.6rem;">If you experience difficulty accessing any part of this Site, or need information in an alternative format, contact us — we will work with you to provide the content or service you need:</p>
-    <p style="font-size:.92rem;">Email: <a href="mailto:slebron@vortonadvisory.com" style="color:var(--gold);">slebron@vortonadvisory.com</a></p>
-  </div>
-</section>
+</div>
 
 <!-- ══ FOOTER ══ -->
 <footer role="contentinfo">
@@ -1153,14 +1172,14 @@ footer a:hover { color:rgba(184,145,42,.7); }
 
   <div class="footer-hr"></div>
   <div class="footer-legal">
-    <a href="#privacy-policy">Privacy Policy</a> &nbsp;·&nbsp;
-    <a href="#terms-of-use">Terms of Use</a> &nbsp;·&nbsp;
-    <a href="#accessibility-statement">Accessibility Statement</a>
+    <a href="#" data-modal="privacy-policy">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="#" data-modal="terms-of-use">Terms of Use</a> &nbsp;·&nbsp;
+    <a href="#" data-modal="accessibility-statement">Accessibility Statement</a>
   </div>
 
   <div class="footer-hr"></div>
   <div class="footer-tagline">Where Discretion Meets Distinction</div>
-  <div class="footer-copy">© 2025 Vorton Advisory LLC · All rights reserved · All Inquiries Handled with Strict Confidence</div>
+  <div class="footer-copy">© 2026 Vorton Advisory LLC · All rights reserved · All Inquiries Handled with Strict Confidence</div>
 </footer>
 
 <script>
@@ -1198,7 +1217,7 @@ footer a:hover { color:rgba(184,145,42,.7); }
     if (id === 'email-link') {
       gaEvent('email_click', { page_location: window.location.href });
     }
-    // Phone clicks — no phone number exists on the site yet.
+    // Phone clicks, no phone number exists on the site yet.
     // Once a tel: link is added, this same pattern covers it automatically:
     // if (href.indexOf('tel:') === 0) { gaEvent('phone_click', { link_url: href }); }
   });
@@ -1217,6 +1236,52 @@ footer a:hover { color:rgba(184,145,42,.7); }
       window.location.href='mailto:'+e+'?subject=Inquiry%20%E2%80%94%20Vorton%20Advisory&body='+body;
     });
   }
+  // ── LEGAL MODAL ─────────────────────────────────────────────────────
+  (function(){
+    var backdrop = document.getElementById('legal-modal-backdrop');
+    var closeBtn = document.getElementById('legal-modal-close-btn');
+
+    function openModal(panelId) {
+      // hide all panels
+      backdrop.querySelectorAll('.legal-panel').forEach(function(p){ p.classList.remove('active'); });
+      var panel = document.getElementById('panel-' + panelId);
+      if (!panel) return;
+      panel.classList.add('active');
+      backdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      // scroll panel content to top
+      document.getElementById('legal-modal').scrollTop = 0;
+      closeBtn.focus();
+    }
+
+    function closeModal() {
+      backdrop.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Footer link clicks
+    document.querySelectorAll('[data-modal]').forEach(function(link){
+      link.addEventListener('click', function(ev){
+        ev.preventDefault();
+        openModal(link.getAttribute('data-modal'));
+      });
+    });
+
+    // Close button
+    closeBtn.addEventListener('click', closeModal);
+
+    // Click outside modal
+    backdrop.addEventListener('click', function(ev){
+      if (ev.target === backdrop) closeModal();
+    });
+
+    // Escape key
+    document.addEventListener('keydown', function(ev){
+      if (ev.key === 'Escape' && backdrop.classList.contains('open')) closeModal();
+    });
+  })();
+  // ────────────────────────────────────────────────────────────────────
+
   var nav=document.getElementById('main-nav');
   window.addEventListener('scroll',function(){ nav.classList.toggle('scrolled',window.scrollY>60); },{passive:true});
   var obs=new IntersectionObserver(function(entries){
